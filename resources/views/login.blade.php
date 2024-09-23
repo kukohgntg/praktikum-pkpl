@@ -11,7 +11,7 @@
 <body>
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <form class="border p-4 rounded shadow" style="width: 300px;" method="POST" action="{{ route('login') }}">
+        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="{{ route('login') }}">
             @csrf
             <h3 class="text-center">Login</h3>
 
@@ -31,7 +31,7 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
             <div class="text-center mt-3">
-                <a href="#">Sign Up</a>
+                <a href="/register">Don't have an account? Register</a>
             </div>
         </form>
     </div>
