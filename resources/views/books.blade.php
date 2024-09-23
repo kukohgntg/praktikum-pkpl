@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Halaman Register</h1>
+    <h1>Halaman Buku</h1>
 </body>
 
 </html>
