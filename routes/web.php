@@ -13,10 +13,22 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
-Route::post('login', [AuthController::class, 'authenticating'])->middleware(OnlyGuest::class);
-Route::get('register', [AuthController::class, 'register'])->middleware(OnlyGuest::class);
+Route::middleware([OnlyGuest::class])->group(function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticating']);
+    Route::get('register', [AuthController::class, 'register']);
+});
 
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', OnlyAdmin::class]);
-Route::get('profile', [UserController::class, 'profile'])->middleware(['auth', OnlyClient::class]);
-Route::get('books', [BookController::class, 'books'])->middleware('auth');
+// Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
+// Route::post('login', [AuthController::class, 'authenticating'])->middleware(OnlyGuest::class);
+// Route::get('register', [AuthController::class, 'register'])->middleware(OnlyGuest::class);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware([OnlyAdmin::class]);
+    Route::get('profile', [UserController::class, 'profile'])->middleware([OnlyClient::class]);
+    Route::get('books', [BookController::class, 'books']);
+});
+
+// Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', OnlyAdmin::class]);
+// Route::get('profile', [UserController::class, 'profile'])->middleware(['auth', OnlyClient::class]);
+// Route::get('books', [BookController::class, 'books'])->middleware('auth');
