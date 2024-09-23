@@ -8,4 +8,5 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login', [AuthController::class, 'authenticating']);
 Route::get('register', [AuthController::class, 'register']);
