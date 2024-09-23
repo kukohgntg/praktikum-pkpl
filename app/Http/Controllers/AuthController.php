@@ -13,11 +13,6 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function register()
-    {
-        return view('register');
-    }
-
     public function authenticating(Request $request)
     {
         // dd('authenticating');
@@ -49,6 +44,24 @@ class AuthController extends Controller
         Session::flash('message', 'Login invalid');
         return redirect('/login');
     }
+
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function registering(Request $request)
+    {
+        $validated = $request->validate([
+            'username' => 'required|unique:users|max:255',
+            'password' => 'required|max:255',
+            'phone' => 'max:255',
+            'address' => 'required',
+        ]);
+
+        dd($validated);
+    }
+
 
     public function logout(Request $request)
     {
