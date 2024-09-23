@@ -1,3 +1,5 @@
+# RENAME THIS FILE TO .env
+
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:oTbbl3MQrZWkyvg5sMurRODgIL2LG18nxcBhc3ZcdW0=
@@ -20,11 +22,11 @@ LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=praktikum-pkpl
-DB_USERNAME=root
-DB_PASSWORD=
+DB_HOST=pr1.h.filess.io
+DB_PORT=3307
+DB_DATABASE=praktikumpkpl_happenofor
+DB_USERNAME=praktikumpkpl_happenofor
+DB_PASSWORD=5ceca3131f3139fb38c43c76158ddf24304bcf04
 
 SESSION_DRIVER=database
 SESSION_LIFETIME=120
