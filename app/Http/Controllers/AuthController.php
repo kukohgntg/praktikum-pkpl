@@ -35,7 +35,7 @@ class AuthController extends Controller
                 return redirect('/login');
             }
             // dd(Auth::user());
-            $request->session()->regenerate();
+            // $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
                 return redirect('dashboard');
             }
