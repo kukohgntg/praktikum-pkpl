@@ -24,6 +24,7 @@ Route::middleware([OnlyGuest::class])->group(function () {
 // Route::get('register', [AuthController::class, 'register'])->middleware(OnlyGuest::class);
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('logout', [AuthController::class, 'logout']);
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware([OnlyAdmin::class]);
     Route::get('profile', [UserController::class, 'profile'])->middleware([OnlyClient::class]);
     Route::get('books', [BookController::class, 'books']);

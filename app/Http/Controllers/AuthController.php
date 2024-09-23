@@ -49,4 +49,12 @@ class AuthController extends Controller
         Session::flash('message', 'Login invalid');
         return redirect('/login');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
