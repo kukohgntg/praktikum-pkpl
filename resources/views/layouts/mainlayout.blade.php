@@ -44,37 +44,64 @@
     </header>
 
     <main>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-        
+
             <div class="list-group list-group-flush">
-                
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Books</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Categories</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Rent Log</a>
-        
-                <!-- Collapse Dropdown List Item -->
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" data-bs-toggle="collapse"
-                    href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Users
-                </a>
-                <div class="collapse" id="collapseExample">
-                    <div class="list-group list-group-flush">
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Action</a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Another action</a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">Something else here</a>
+
+                @if (Auth::user()->role_id == 1)
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Dashboard
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Books
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Categories
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Rent
+                        Log
+                    </a>
+
+                    <!-- Collapse Dropdown List Item -->
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        Users
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="list-group list-group-flush">
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Action
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Another action
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Something else here
+                            </a>
+                        </div>
                     </div>
-                </div>
-        
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Logout</a>
+
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Logout
+                    </a>
+                @else
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Profile
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                        Logout
+                    </a>
+                @endif
+
             </div>
         </div>
-        
+
 
         <div class="col-10 p-5">
             @yield('content')
