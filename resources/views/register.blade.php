@@ -15,9 +15,13 @@
             @csrf
             <h3 class="text-center">Register</h3>
 
-            @if (session('status'))
+            @if ($errors->any())
             <div class="alert alert-danger">
-                {{ session('message') }}
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
             @endif
 
