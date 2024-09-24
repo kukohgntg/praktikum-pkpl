@@ -22,10 +22,16 @@ class AuthController extends Controller
             'password' => ['required']
         ]);
 
-        // cek apakah loginvalid
+        // cek apakah login valid
         if (Auth::attempt($credentials)) {
             // cek apakah user active
             if (Auth::user()->status != 'active') {
+
+                // user tidak active dilempar ke logout
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
                 Session::flash('status', 'failed');
                 Session::flash('message', 'Your acount inactive, please contact admin!');
                 return redirect('/login');
@@ -62,6 +68,9 @@ class AuthController extends Controller
 
         // dd($validated);
         $user = User::create($request->all());
+        Session::flash('status', 'success');
+        Session::flash('message', 'Register success, wait admin approveal');
+        return redirect('/login');
     }
 
 
