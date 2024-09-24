@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function dashboard(Request $request)
-    {
-        $request->session()->flush();
-        // dd(Auth::user());
-    }
-
-    // public function dashboard()
+    // public function dashboard(Request $request)
     // {
-    //     return view('dashboard');
+    //     $request->session()->flush();
+    //     // dd(Auth::user());
     // }
+
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 }
