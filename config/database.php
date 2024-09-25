@@ -49,7 +49,7 @@ return [
             'port' => env('DB_PORT', '3307'),
             'database' => env('DB_DATABASE', 'praktikumpkpl_happenofor'),
             'username' => env('DB_USERNAME', 'praktikumpkpl_happenofor'),
-            'password' => env('DB_PASSWORD', ''),
+            'password' => env('DB_PASSWORD', '5ceca3131f3139fb38c43c76158ddf24304bcf04'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
