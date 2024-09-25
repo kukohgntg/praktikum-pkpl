@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
 
 export default defineConfig({
     plugins: [
@@ -9,3 +11,5 @@ export default defineConfig({
         }),
     ],
 });
+
+injectSpeedInsights();

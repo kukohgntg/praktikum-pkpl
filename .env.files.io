@@ -5,7 +5,7 @@ APP_ENV=local
 APP_KEY=base64:oTbbl3MQrZWkyvg5sMurRODgIL2LG18nxcBhc3ZcdW0=
 APP_DEBUG=true
 APP_TIMEZONE=UTC
-APP_URL=http://localhost
+APP_URL=https://praktikum-pkpl.vercel.app/
 
 APP_LOCALE=en
 APP_FALLBACK_LOCALE=en
