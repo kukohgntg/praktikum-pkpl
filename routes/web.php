@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('categories', [CategoryController::class, 'categories_view']);
     Route::get('add-category', [CategoryController::class, 'add_category_view']);
+    Route::post('save-category', [CategoryController::class, 'save_category']);
 
     Route::get('rentlogs', [RentLogContrller::class, 'rentlogs_view']);
 

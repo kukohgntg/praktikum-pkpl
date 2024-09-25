@@ -18,4 +18,11 @@ class CategoryController extends Controller
     {
         return view('add-category');
     }
+
+    public function save_category(Request $request)
+    {
+        // dd($request->all());
+        $category = Category::create($request->all());
+        return redirect('categories');
+    }
 }
