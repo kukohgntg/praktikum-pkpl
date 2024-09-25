@@ -71,8 +71,12 @@ class CategorySeeder extends Seeder
         ];
 
 
+        // foreach ($data as $value) {
+        //     Category::insert(['name' => $value]);
+        // }
+
         foreach ($data as $value) {
-            Category::insert(['name' => $value]);
+            Category::insert(['name' => $value, 'slug' => $value]);
         }
     }
 }
