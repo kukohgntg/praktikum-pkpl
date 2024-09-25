@@ -6,7 +6,15 @@
 @section('content')
     {{-- {{ $categories }} --}}
 
-    <h1>Halaman Categories</h1>
+    <h1> Halaman Categories</h1>
+
+    <div class="mt-3">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+    </div>
 
     <div class="card mt-3">
         <div class="card-header d-flex justify-content-between align-items-center">
