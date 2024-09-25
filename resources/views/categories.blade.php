@@ -1,8 +1,8 @@
 @extends('layouts.mainlayout')
 
-@section('title', 'Book')
+@section('title', 'Categories')
 
 
 @section('content')
-    <p>Halaman Book</p>
+    <p>Halaman Categories</p>
 @endsection

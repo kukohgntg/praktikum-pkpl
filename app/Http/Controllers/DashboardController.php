@@ -13,7 +13,7 @@ class DashboardController extends Controller
     //     // dd(Auth::user());
     // }
 
-    public function dashboard()
+    public function dashboard_view()
     {
         return view('dashboard');
     }

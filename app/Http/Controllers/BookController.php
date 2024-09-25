@@ -12,7 +12,7 @@ class BookController extends Controller
     //     // dd(Auth::user());
     // }
 
-    public function books()
+    public function books_view()
     {
         return view('books');
     }

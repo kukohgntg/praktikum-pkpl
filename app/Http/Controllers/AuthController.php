@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function login()
+    public function login_view()
     {
         return view('login');
     }
@@ -52,7 +52,7 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function register()
+    public function register_view()
     {
         return view('register');
     }

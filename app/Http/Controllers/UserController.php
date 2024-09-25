@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // public function profile(Request $request)
-    // {
-    //     $request->session()->flush();
-    //     // dd(Auth::user());
-    // }
+    // for admin
+    public function users_view()
+    {
+        return view('users');
+    }
 
-    public function profile()
+    // for client
+    public function profile_view()
     {
         return view('profile');
     }

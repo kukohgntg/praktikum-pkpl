@@ -13,34 +13,40 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
+                <!-- Pemicu Offcanvas -->
                 <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
                     aria-controls="offcanvasExample">
                     Perpustakaan
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
+
+                <!-- Toggle Button for Mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Menambahkan kelas ms-auto di sini -->
+
+                <!-- Collapsible Navbar Content -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto"> <!-- ms-auto digunakan untuk memposisikan ke kanan -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Dropdown link
+                                Dropdown
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <!-- Menambahkan dropdown-menu-end untuk posisi dropdown -->
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Setting</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
 
     <main>
@@ -54,17 +60,17 @@
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="dashboard">
                         Dashboard
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="books">
                         Books
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="categories">
                         Categories
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Rent
-                        Log
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="rentlogs">Rent
+                        Logs
                     </a>
 
                     <!-- Collapse Dropdown List Item -->
@@ -87,14 +93,14 @@
                         </div>
                     </div>
 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout">
                         Logout
                     </a>
                 @else
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profile">
                         Profile
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout">
                         Logout
                     </a>
                 @endif
@@ -103,7 +109,7 @@
         </div>
 
 
-        <div class="col-10 p-5">
+        <div class="p-5">
             @yield('content')
         </div>
     </main>
