@@ -38,8 +38,8 @@
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="">Edit</a>
-                                <a href="">Delete</a>
+                                <a href="edit-category/{{ $item->slug }}">Edit</a>
+                                <a href="delete-category/{{ $item->slug }}">Delete</a>
                             </td>
                         </tr>
                     @endforeach

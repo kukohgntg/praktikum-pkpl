@@ -31,12 +31,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('books', [BookController::class, 'books_view']);
 
-    Route::get('categories', [CategoryController::class, 'categories_view']);
-    Route::get('add-category', [CategoryController::class, 'add_category_view']);
-    Route::post('save-category', [CategoryController::class, 'save_category']);
-    Route::get('edit-category/{slug}', [CategoryController::class, 'edit_category_view']);
-    Route::get('delete-category/{slug}', [CategoryController::class, 'delete_category_view']);
-
     Route::get('rentlogs', [RentLogContrller::class, 'rentlogs_view']);
 
     Route::get('users', [UserController::class, 'users_view']);
@@ -45,6 +39,18 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('logout', [AuthController::class, 'logout']);
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('categories', [CategoryController::class, 'categories_view']);
+
+    Route::get('add-category', [CategoryController::class, 'add_category_view']);
+    Route::post('add-category', [CategoryController::class, 'add_category']);
+
+    Route::get('edit-category/{slug}', [CategoryController::class, 'edit_category_view']);
+    Route::put('edit-category/{slug}', [CategoryController::class, 'edit_category']);
+
+});
+
 
 // Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', OnlyAdmin::class]);
 // Route::get('profile', [UserController::class, 'profile'])->middleware(['auth', OnlyClient::class]);

@@ -1,6 +1,6 @@
 @extends('layouts.mainlayout')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Category')
 
 
 @section('content')
@@ -15,15 +15,16 @@
                 </ul>
             </div>
         @endif
-        <form action="add-category" method="POST">
+        <form action="/edit-category/{{ $category->slug }}" method="POST">
+            {{ method_field('PUT') }}
             @csrf
             <label for="name" class="form-label">Category Name</label>
-            <input id="name" name="name" type="text" class="form-control" placeholder="Insert Category Name Here">
+            <input id="name" name="name" type="text" class="form-control" value="{{ $category->name }}">
             <div id="categoryNameHelpBlock" class="form-text">
                 Pastikan nama kategori belum ada
             </div>
             <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary mb-3 ">Save</button>
+                <button type="submit" class="btn btn-primary mb-3 ">Update</button>
             </div>
         </form>
     </div>

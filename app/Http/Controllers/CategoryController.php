@@ -19,7 +19,7 @@ class CategoryController extends Controller
         return view('add-category');
     }
 
-    public function save_category(Request $request)
+    public function add_category(Request $request)
     {
         // dd($request->all());
 
@@ -28,6 +28,28 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::create($request->all());
-        return redirect('categories')->with('status','Category Added Successfully');
+        return redirect('categories')->with('status', 'Category Added Successfully');
+    }
+
+    public function edit_category_view($slug)
+    {
+        // dd($request->all());
+
+        $category = Category::where('slug', $slug)->first();
+        return view('edit-category', ['category' => $category]);
+    }
+
+    public function edit_category(Request $request, $slug)
+    {
+        // dd(request()->all());
+        // dd($slug);
+        $validated = $request->validate([
+            'name' => 'required|unique:categories|max:100'
+        ]);
+
+        $category = Category::where('slug', $slug)->first();
+        $category->slug = null;
+        $category->update($request->all());
+        return redirect('categories')->with('status', 'Category Updated Successfully');
     }
 }
