@@ -57,20 +57,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
+            {{-- {{ request()->route()->uri() }} --}}
+
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="dashboard">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
+                        href="dashboard">
                         Dashboard
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="books">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                        href="books">
                         Books
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="categories">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
+                        href="categories">
                         Categories
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="rentlogs">Rent
-                        Logs
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
+                        href="rentlogs">
+                        Rent Logs
                     </a>
 
                     <!-- Collapse Dropdown List Item -->
@@ -93,21 +99,23 @@
                         </div>
                     </div>
 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        href="logout">
                         Logout
                     </a>
                 @else
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="profile">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
+                        href="profile">
                         Profile
                     </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        href="logout">
                         Logout
                     </a>
                 @endif
 
             </div>
         </div>
-
 
         <div class="p-5">
             @yield('content')
