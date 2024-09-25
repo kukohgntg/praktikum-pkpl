@@ -21,7 +21,7 @@
                     <div class="col-8">
                         <div class="card-body">
                             <h1 class="card-title">Books</h1>
-                            <h5 class="card-text">159</h5>
+                            <h5 class="card-text">{{ $book_count }}</h5>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <div class="col-8">
                         <div class="card-body">
                             <h1 class="card-title">Category</h1>
-                            <h5 class="card-text">159</h5>
+                            <h5 class="card-text">{{ $category_count }}</h5>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     <div class="col-8">
                         <div class="card-body">
                             <h1 class="card-title">Users</h1>
-                            <h5 class="card-text">159</h5>
+                            <h5 class="card-text">{{ $user_count }}</h5>
                         </div>
                     </div>
                 </div>
