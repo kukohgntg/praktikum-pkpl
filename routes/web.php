@@ -28,11 +28,18 @@ Route::middleware([OnlyGuest::class])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard_view'])->middleware([OnlyAdmin::class]);
+
     Route::get('books', [BookController::class, 'books_view']);
+
     Route::get('categories', [CategoryController::class, 'categories_view']);
+    Route::get('add-category', [CategoryController::class, 'add_category_view']);
+
     Route::get('rentlogs', [RentLogContrller::class, 'rentlogs_view']);
+
     Route::get('users', [UserController::class, 'users_view']);
+
     Route::get('profile', [UserController::class, 'profile_view'])->middleware([OnlyClient::class]);
+
     Route::get('logout', [AuthController::class, 'logout']);
 });
 

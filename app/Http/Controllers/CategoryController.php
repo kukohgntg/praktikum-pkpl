@@ -12,4 +12,10 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('categories', ['categories' => $categories]);
     }
+
+
+    public function add_category_view()
+    {
+        return view('add-category');
+    }
 }

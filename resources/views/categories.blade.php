@@ -4,12 +4,15 @@
 
 
 @section('content')
-    <h1>Halaman Categories</h1>
     {{-- {{ $categories }} --}}
 
+    <h1>Halaman Categories</h1>
+
     <div class="card mt-3">
-        <div class="card-header">
-            DataTable Example
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
+            <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
+            <a href="add-category" class="btn btn-primary">Add Category</a>
         </div>
         <div class="card-body">
             <table class="table table-hover" id="datatablesSimple">
@@ -28,7 +31,7 @@
                             <td>{{ $item->name }}</td>
                             <td>
                                 <a href="">Edit</a>
-                                <a href="">Dellete</a>
+                                <a href="">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -44,5 +47,6 @@
             </table>
         </div>
     </div>
+
 
 @endsection
