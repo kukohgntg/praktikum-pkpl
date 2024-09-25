@@ -41,6 +41,7 @@
         "DB_HOST": "pr1.h.filess.io",
         "DB_PORT": "3307",
         "DB_DATABASE": "praktikumpkpl_happenofor",
-        "DB_USERNAME": "praktikumpkpl_happenofor"
+        "DB_USERNAME": "praktikumpkpl_happenofor",
+        "DB_PASSWORD": "5ceca3131f3139fb38c43c76158ddf24304bcf04"
     }
 }
