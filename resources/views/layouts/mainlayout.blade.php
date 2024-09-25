@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -63,56 +64,56 @@
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
-                        href="dashboard">
-                        Dashboard
-                    </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
-                        href="books">
-                        Books
-                    </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
-                        href="categories">
-                        Categories
-                    </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
-                        href="rentlogs">
-                        Rent Logs
-                    </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
+                    href="dashboard">
+                    Dashboard
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                    href="books">
+                    Books
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
+                    href="categories">
+                    Categories
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
+                    href="rentlogs">
+                    Rent Logs
+                </a>
 
-                    <!-- Collapse Dropdown List Item -->
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                        data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                        aria-controls="collapseExample">
-                        Users
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <div class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Action
-                            </a>
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Another action
-                            </a>
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Something else here
-                            </a>
-                        </div>
+                <!-- Collapse Dropdown List Item -->
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Users
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                            Action
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                            Another action
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                            Something else here
+                        </a>
                     </div>
+                </div>
 
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                        href="logout">
-                        Logout
-                    </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                    href="logout">
+                    Logout
+                </a>
                 @else
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
-                        href="profile">
-                        Profile
-                    </a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                        href="logout">
-                        Logout
-                    </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
+                    href="profile">
+                    Profile
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                    href="logout">
+                    Logout
+                </a>
                 @endif
 
             </div>
@@ -131,6 +132,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/datatables-simple-demo.js') }}"></script>
+
 </body>
 
 </html>
