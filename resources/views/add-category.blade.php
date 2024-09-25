@@ -6,6 +6,15 @@
 @section('content')
     <h1>Add New Category</h1>
     <div>
+        @if ($errors->any())
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="save-category" method="POST">
             @csrf
             <label for="categoryName" class="form-label">Category Name</label>
