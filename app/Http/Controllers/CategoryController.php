@@ -19,6 +19,7 @@ class CategoryController extends Controller
         return view('add-category');
     }
 
+    // Create
     public function add_category(Request $request)
     {
         // dd($request->all());
@@ -39,6 +40,7 @@ class CategoryController extends Controller
         return view('edit-category', ['category' => $category]);
     }
 
+    // Update
     public function edit_category(Request $request, $slug)
     {
         // dd(request()->all());
@@ -51,5 +53,21 @@ class CategoryController extends Controller
         $category->slug = null;
         $category->update($request->all());
         return redirect('categories')->with('status', 'Category Updated Successfully');
+    }
+
+    public function delete_category_view($slug)
+    {
+        // dd($request->all());
+
+        $category = Category::where('slug', $slug)->first();
+        return view('delete-category', ['category' => $category]);
+    }
+
+    // Delete
+    public function delete_category($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $category->delete();
+        return redirect('categories')->with('status', 'Category Deleted Successfully');
     }
 }
