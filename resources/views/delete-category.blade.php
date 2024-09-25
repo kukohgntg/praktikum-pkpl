@@ -3,13 +3,13 @@
 <h1>Are you sure to delete {{ $category->name }} category</h1>
 <div class="mt-3">
     @if ($errors->any())
-        <div class="alert alert-warning">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-warning">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
     <form action="/deleted-category/{{ $category->slug }}" method="GET">
         @csrf

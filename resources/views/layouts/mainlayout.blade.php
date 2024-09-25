@@ -134,6 +134,12 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
     <script type="text/javascript" src="{{ URL::asset('/js/datatables-simple-demo.js') }}"></script>
+    <script>
+        window.si = window.si || function() {
+            (window.siq = window.siq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 
 </body>
 

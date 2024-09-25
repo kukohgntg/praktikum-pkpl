@@ -4,5 +4,5 @@
 
 
 @section('content')
-    <p>Halaman Rent Logs</p>
+<p>Halaman Rent Logs</p>
 @endsection

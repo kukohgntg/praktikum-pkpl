@@ -4,5 +4,5 @@
 
 
 @section('content')
-    <p>Halaman Users</p>
+<p>Halaman Users</p>
 @endsection

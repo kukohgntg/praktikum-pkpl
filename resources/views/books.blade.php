@@ -4,5 +4,5 @@
 
 
 @section('content')
-    <p>Halaman Book</p>
+<p>Halaman Book</p>
 @endsection
