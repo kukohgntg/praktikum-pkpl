@@ -7,11 +7,12 @@
     <title>Perpustakaan | @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
             <div class="container-fluid">
                 <!-- Pemicu Offcanvas -->
                 <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
@@ -117,7 +118,7 @@
             </div>
         </div>
 
-        <div class="p-5">
+        <div class="p-5 mt-5"> <!-- Tambahkan mt-5 untuk memberi jarak di atas -->
             @yield('content')
         </div>
     </main>
