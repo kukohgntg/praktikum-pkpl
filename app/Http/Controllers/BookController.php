@@ -18,10 +18,14 @@ class BookController extends Controller
         return view('add-book');
     }
 
-    public function add_book() {}
-
-    public function test()
+    public function add_book(Request $request)
     {
-        return dd('test');
+        // dd($request->all);
+        $validated = $request->validate([
+            'title' => 'required|unique:books|max:255'
+        ]);
+
+        $category = Book::create($request->all());
+        return redirect('books')->with('status', 'Category Added Successfully');
     }
 }
