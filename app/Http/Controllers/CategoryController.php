@@ -88,4 +88,9 @@ class CategoryController extends Controller
         $category->restore();
         return redirect('deleted-categories')->with('status', 'Category Restored Successfully');
     }
+
+    public function test()
+    {
+        return view('test');
+    }
 }

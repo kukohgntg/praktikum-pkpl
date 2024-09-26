@@ -4,7 +4,6 @@ use App\Http\Middleware\OnlyAdmin;
 use App\Http\Middleware\OnlyGuest;
 use App\Http\Middleware\OnlyClient;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
@@ -25,8 +24,6 @@ Route::middleware([OnlyGuest::class])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard_view'])->middleware([OnlyAdmin::class]);
-
-    Route::get('books', [BookController::class, 'books_view']);
 
     Route::get('rentlogs', [RentLogContrller::class, 'rentlogs_view']);
 
@@ -55,14 +52,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('restored-category/{slug}', [CategoryController::class, 'restored_category']);
 });
 
-Route::get('/clear', function () {
+Route::middleware(['auth'])->group(function () {
+    Route::get('books', [BookController::class, 'books_view']);
 
-    Artisan::call('cache:clear');
-    Artisan::call('config:clear');
-    Artisan::call('config:cache');
-    Artisan::call('view:clear');
-
-    return "Cleared!";
+    Route::get('add-book', [BookController::class, 'add_book_view']);
+    Route::post('add-book', [BookController::class, 'add_book']);
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
