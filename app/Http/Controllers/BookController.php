@@ -22,7 +22,8 @@ class BookController extends Controller
     {
         // dd($request->all);
         $validated = $request->validate([
-            'title' => 'required|unique:books|max:255'
+            'book_code' => 'required|unique:books|max:255',
+            'title' => 'required|max:255',
         ]);
 
         $category = Book::create($request->all());

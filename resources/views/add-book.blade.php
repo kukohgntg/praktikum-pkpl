@@ -17,12 +17,12 @@
             <div class="mb-3">
                 <label for="book_code" class="form-label">book_code</label>
                 <input id="book_code" name="book_code" type="text" class="form-control"
-                    placeholder="Insert book_code Here" />
+                    placeholder="Insert book_code Here" value="{{ old('book_code') }}"/>
             </div>
 
             <div class="mb-3">
                 <label for="title" class="form-label">title</label>
-                <input id="title" name="title" type="text" class="form-control" placeholder="Insert title Here" />
+                <input id="title" name="title" type="text" class="form-control" placeholder="Insert title Here" value="{{ old('title') }}"/>
             </div>
 
             <div class="mb-3">
