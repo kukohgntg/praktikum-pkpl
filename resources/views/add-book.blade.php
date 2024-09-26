@@ -16,18 +16,20 @@
             @csrf
             <div class="mb-3">
                 <label for="book_code" class="form-label">book_code</label>
-                <input id="book_code" name="book_code" type="text" class="form-control"
-                    placeholder="Insert book_code Here" value="{{ old('book_code') }}"/>
+                <input id="book_code" name="book_code" type="text" class="form-control" placeholder="Insert book_code Here"
+                    value="{{ old('book_code') }}" />
             </div>
 
             <div class="mb-3">
                 <label for="title" class="form-label">title</label>
-                <input id="title" name="title" type="text" class="form-control" placeholder="Insert title Here" value="{{ old('title') }}"/>
+                <input id="title" name="title" type="text" class="form-control" placeholder="Insert title Here"
+                    value="{{ old('title') }}" />
             </div>
 
             <div class="mb-3">
-                <label for="cover" class="form-label">cover</label>
-                <input id="cover" name="cover" type="file" class="form-control" placeholder="Insert cover Here" />
+                {{-- cover==image --}}
+                <label for="image" class="form-label">cover</label>
+                <input id="image" name="image" type="file" class="form-control" placeholder="Insert cover Here" />
                 <div id="coverHelpBlock" class="form-text">
                     *Pastikan ukuran gambar tidak lebih dari 1 mb
                 </div>
