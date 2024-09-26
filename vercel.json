@@ -46,10 +46,10 @@
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node",
         "DB_CONNECTION": "mysql",
-        "DB_HOST": "pr1.h.filess.io",
+        "DB_HOST": "22j.h.filess.io",
         "DB_PORT": "3307",
-        "DB_DATABASE": "praktikumpkpl_happenofor",
-        "DB_USERNAME": "praktikumpkpl_happenofor",
-        "DB_PASSWORD": "5ceca3131f3139fb38c43c76158ddf24304bcf04"
+        "DB_DATABASE": "pkpl_alonestone",
+        "DB_USERNAME": "pkpl_alonestone",
+        "DB_PASSWORD": "0212961ed20131e35adfb13f2dc5254977fad1ee"
     }
 }
