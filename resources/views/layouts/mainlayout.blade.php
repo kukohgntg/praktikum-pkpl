@@ -64,56 +64,56 @@
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
-                    href="dashboard">
-                    Dashboard
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
-                    href="books">
-                    Books
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
-                    href="categories">
-                    Categories
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
-                    href="rentlogs">
-                    Rent Logs
-                </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
+                        href="dashboard">
+                        Dashboard
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                        href="books">
+                        Books
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories/*', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
+                        href="categories">
+                        Categories
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
+                        href="rentlogs">
+                        Rent Logs
+                    </a>
 
-                <!-- Collapse Dropdown List Item -->
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
-                    Users
-                </a>
-                <div class="collapse" id="collapseExample">
-                    <div class="list-group list-group-flush">
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                            Action
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                            Another action
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                            Something else here
-                        </a>
+                    <!-- Collapse Dropdown List Item -->
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                        data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        Users
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="list-group list-group-flush">
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Action
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Another action
+                            </a>
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
+                                Something else here
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                    href="logout">
-                    Logout
-                </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        href="logout">
+                        Logout
+                    </a>
                 @else
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
-                    href="profile">
-                    Profile
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                    href="logout">
-                    Logout
-                </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
+                        href="profile">
+                        Profile
+                    </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        href="logout">
+                        Logout
+                    </a>
                 @endif
 
             </div>
