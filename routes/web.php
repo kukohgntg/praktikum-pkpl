@@ -22,10 +22,6 @@ Route::middleware([OnlyGuest::class])->group(function () {
     Route::post('register', [AuthController::class, 'registering']);
 });
 
-// Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
-// Route::post('login', [AuthController::class, 'authenticating'])->middleware(OnlyGuest::class);
-// Route::get('register', [AuthController::class, 'register'])->middleware(OnlyGuest::class);
-
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'dashboard_view'])->middleware([OnlyAdmin::class]);
 
@@ -46,13 +42,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('add-category', [CategoryController::class, 'add_category_view']);
     Route::post('add-category', [CategoryController::class, 'add_category']);
 
-    Route::get('/edit-category/{slug}', [CategoryController::class, 'edit_category_view']);
-    Route::put('/edit-category/{slug}', [CategoryController::class, 'edit_category']);
+    Route::get('edit-category/{slug}', [CategoryController::class, 'edit_category_view']);
+    Route::put('edit-category/{slug}', [CategoryController::class, 'edit_category']);
 
-    Route::get('/delete-category/{slug}', [CategoryController::class, 'delete_category_view']);
-    Route::get('/deleted-category/{slug}', [CategoryController::class, 'delete_category']);
+    Route::get('delete-category/{slug}', [CategoryController::class, 'delete_category_view']);
+    Route::get('deleted-category/{slug}', [CategoryController::class, 'delete_category']);
+
+    Route::get('deleted-categories', [CategoryController::class, 'deleted_categories_view']);
+
+    Route::get('restore-category/{slug}', [CategoryController::class, 'restore_category_view']);
+    Route::get('restored-category/{slug}', [CategoryController::class, 'restored_category']);
 });
 
+
+// Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
+// Route::post('login', [AuthController::class, 'authenticating'])->middleware(OnlyGuest::class);
+// Route::get('register', [AuthController::class, 'register'])->middleware(OnlyGuest::class);
 
 // Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', OnlyAdmin::class]);
 // Route::get('profile', [UserController::class, 'profile'])->middleware(['auth', OnlyClient::class]);

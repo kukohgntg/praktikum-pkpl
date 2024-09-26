@@ -43,6 +43,8 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "VIEW_COMPILED_PATH": "/tmp",
+        "SSR_TEMP_PATH": "/tmp/ssr",
+        "NODE_PATH": "node",
         "DB_CONNECTION": "mysql",
         "DB_HOST": "pr1.h.filess.io",
         "DB_PORT": "3307",
