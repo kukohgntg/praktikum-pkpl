@@ -4,12 +4,13 @@ use App\Http\Middleware\OnlyAdmin;
 use App\Http\Middleware\OnlyGuest;
 use App\Http\Middleware\OnlyClient;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RentLogContrller;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\RentLogContrller;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +55,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('restored-category/{slug}', [CategoryController::class, 'restored_category']);
 });
 
+Route::get('/clear', function () {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+
+    return "Cleared!";
+});
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
 // Route::post('login', [AuthController::class, 'authenticating'])->middleware(OnlyGuest::class);
