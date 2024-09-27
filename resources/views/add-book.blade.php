@@ -35,10 +35,20 @@
                 </div>
             </div>
 
+            <div class="mb-3">
+                <label for="image" class="form-label">kategori</label>
+                <select class="form-select " aria-label="Default select example">
+                    @foreach ($categories as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary mb-3">Save</button>
             </div>
+
+
         </form>
     </div>
 

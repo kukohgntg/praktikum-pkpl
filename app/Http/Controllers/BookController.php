@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage; // Pastikan Anda import Storage
 
@@ -18,7 +19,8 @@ class BookController extends Controller
     // View untuk menambahkan buku
     public function add_book_view()
     {
-        return view('add-book');
+        $categories = Category::all();
+        return view('add-book', ['categories' => $categories]);
     }
 
     // Fungsi untuk menambahkan buku baru
