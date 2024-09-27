@@ -36,12 +36,14 @@
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">kategori</label>
-                <select class="form-select " aria-label="Default select example">
+                <label for="categories" class="form-label">kategori</label>
+                <select id="categories" name="categories[]" class="form-select js-example-basic-multiple"
+                    multiple="multiple" aria-label="Multiple select example">
                     @foreach ($categories as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
+
             </div>
 
             <div class="d-flex justify-content-end">
@@ -51,5 +53,6 @@
 
         </form>
     </div>
+
 
 @endsection

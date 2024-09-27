@@ -26,6 +26,7 @@ class BookController extends Controller
     // Fungsi untuk menambahkan buku baru
     public function add_book(Request $request)
     {
+        // dd($request->all());
         // Validasi input
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
@@ -48,6 +49,7 @@ class BookController extends Controller
 
         // Membuat buku baru dengan data yang telah divalidasi
         $book = Book::create($request->all());
+        $book->categories()->sync($request->categories);
 
         // Redirect ke halaman books dengan pesan sukses
         return redirect('books')->with('status', 'Book Added Successfully');
