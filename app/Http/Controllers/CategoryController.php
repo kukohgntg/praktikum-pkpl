@@ -19,7 +19,7 @@ class CategoryController extends Controller
     }
 
     // Fungsi Untuk Menambah Category *Create
-    public function add_category(Request $request)
+    public function adding_category(Request $request)
     {
         // dd($request->all());
         $validated = $request->validate([

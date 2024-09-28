@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="add-category" method="POST">
+    <form action="adding-category" method="POST">
         @csrf
         <label for="name" class="form-label">Category Name</label>
         <input id="name" name="name" type="text" class="form-control" placeholder="Insert Category Name Here" />
