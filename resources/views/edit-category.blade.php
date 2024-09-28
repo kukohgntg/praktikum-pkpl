@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="/edit-category/{{ $category->slug }}" method="POST">
+    <form action="/editing-category/{{ $category->slug }}" method="POST">
         {{ method_field('PUT') }}
         @csrf
         <label for="name" class="form-label">Category Name</label>

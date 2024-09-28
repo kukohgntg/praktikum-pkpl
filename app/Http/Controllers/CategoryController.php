@@ -38,7 +38,7 @@ class CategoryController extends Controller
     }
 
     // Fungsi Untuk Menganti Nama Category *Update
-    public function edit_category(Request $request, $slug)
+    public function editing_category(Request $request, $slug)
     {
         // dd(request()->all());
         // dd($slug);
