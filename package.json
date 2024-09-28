@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "postinstall": "composer install && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
     },
     "devDependencies": {
         "axios": "^1.7.4",
