@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('editing-category/{slug}', [CategoryController::class, 'editing_category']);
 
     Route::get('delete-category/{slug}', [CategoryController::class, 'delete_category_view']);
-    Route::get('deleted-category/{slug}', [CategoryController::class, 'delete_category']);
+    Route::get('deleting-category/{slug}', [CategoryController::class, 'deleting_category']);
 
     Route::get('deleted-categories', [CategoryController::class, 'deleted_categories_view']);
 

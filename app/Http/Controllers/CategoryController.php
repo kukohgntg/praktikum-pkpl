@@ -60,7 +60,7 @@ class CategoryController extends Controller
     }
 
     // Fungsi Untuk Menghapus Category *Delete
-    public function delete_category($slug)
+    public function deleting_category($slug)
     {
         $category = Category::where('slug', $slug)->first();
         $category->delete();

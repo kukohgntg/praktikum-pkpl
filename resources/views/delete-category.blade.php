@@ -11,7 +11,7 @@
         </ul>
     </div>
     @endif
-    <form action="/deleted-category/{{ $category->slug }}" method="GET">
+    <form action="/deleting-category/{{ $category->slug }}" method="GET">
         @csrf
         <label for="name" class="visually-hidden">Category Name</label>
         <input id="name" name="name" type="text" class="form-control" placeholder="{{ $category->name }}"
