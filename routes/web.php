@@ -60,6 +60,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('edit-book/{slug}', [BookController::class, 'edit_book_view']);
     Route::put('edit-book/{slug}', [BookController::class, 'edit_book']);
+
+    Route::get('delete-book/{slug}', [BookController::class, 'delete_book_view']);
+    Route::get('deleted-book/{slug}', [BookController::class, 'delete_book']);
+
+    Route::get('deleted-books', [BookController::class, 'deleted_books_view']);
+
+    Route::get('restore-book/{slug}', [BookController::class, 'restore_book_view']);
+    Route::get('restored-book/{slug}', [BookController::class, 'restored_book']);
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
