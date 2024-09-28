@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-        <form action="add-book" method="POST" enctype="multipart/form-data">
+        <form action="adding-book" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="book_code" class="form-label">book_code</label>

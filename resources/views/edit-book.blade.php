@@ -31,7 +31,7 @@
 
             <!-- Form untuk edit buku -->
             <div class="col-md-10">
-                <form action="/edit-book/{{ $book->slug }}" method="POST" enctype="multipart/form-data">
+                <form action="/editing-book/{{ $book->slug }}" method="POST" enctype="multipart/form-data">
                     {{ method_field('PUT') }}
                     @csrf
                     <div class="mb-3">

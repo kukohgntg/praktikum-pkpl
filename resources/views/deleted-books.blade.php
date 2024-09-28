@@ -35,7 +35,7 @@
                             <td>{{ $item->book_code }}</td>
                             <td>{{ $item->title }}</td>
                             <td>
-                                <a href="/restored-book/{{ $item->slug }}">Restore</a>
+                                <a href="/restore-book/{{ $item->slug }}">Restore</a>
                             </td>
                         </tr>
                     @endforeach

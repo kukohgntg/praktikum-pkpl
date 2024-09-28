@@ -32,7 +32,7 @@
 
             <!-- Form untuk hapus buku -->
             <div class="col-md-10">
-                <form action="/deleted-book/{{ $book->slug }}" method="GET">
+                <form action="/deleting-book/{{ $book->slug }}" method="GET">
                     @csrf
 
                     <div class="mb-3">

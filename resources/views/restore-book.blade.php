@@ -1,7 +1,7 @@
 @extends('layouts.mainlayout') 
 @section('title', 'Restore Book')
 @section('content')
-    <h1>Are you sure to delete restore book</h1>
+    <h1>Are you sure to restore book</h1>
     {{-- <h1>Are you sure to delete {{ $book->name }} book</h1> --}}
     <div class="mt-3">
         @if ($errors->any())
@@ -13,7 +13,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/restored-book/{{ $book->slug }}" method="GET">
+        <form action="/restoring-book/{{ $book->slug }}" method="GET">
             @csrf
             <label for="title" class="visually-hidden">Book Title</label>
             <input id="title" name="title" type="text" class="form-control" placeholder="{{ $book->title }}"

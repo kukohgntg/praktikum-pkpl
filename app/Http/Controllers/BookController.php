@@ -24,7 +24,7 @@ class BookController extends Controller
     }
 
     // Fungsi untuk menambahkan buku baru
-    public function add_book(Request $request)
+    public function adding_book(Request $request)
     {
         // dd($request->all());
         // Validasi input
@@ -64,7 +64,7 @@ class BookController extends Controller
     }
 
     // Fungsi untuk mengedit buku *Update
-    public function edit_book(Request $request, $slug)
+    public function editing_book(Request $request, $slug)
     {
         // Validasi input
         $validated = $request->validate([
@@ -119,7 +119,7 @@ class BookController extends Controller
     }
 
     // Fungsi Untuk Menghapus Book *Delete
-    public function delete_book($slug)
+    public function deleting_book($slug)
     {
         $book = Book::where('slug', $slug)->first();
         $book->delete();
@@ -141,7 +141,7 @@ class BookController extends Controller
     }
 
     // Fungsi Untuk Memulihkan Book *Restore
-    public function restored_book($slug)
+    public function restoring_book($slug)
     {
         $book = Book::onlyTrashed()->where('slug', $slug)->first();
         $book->restore();
