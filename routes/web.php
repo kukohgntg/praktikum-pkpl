@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('deleted-categories', [CategoryController::class, 'deleted_categories_view']);
 
     Route::get('restore-category/{slug}', [CategoryController::class, 'restore_category_view']);
-    Route::get('restored-category/{slug}', [CategoryController::class, 'restored_category']);
+    Route::get('restoring-category/{slug}', [CategoryController::class, 'restoring_category']);
 });
 
 Route::middleware(['auth'])->group(function () {

@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/restored-category/{{ $category->slug }}" method="GET">
+        <form action="/restoring-category/{{ $category->slug }}" method="GET">
             @csrf
             <label for="name" class="visually-hidden">Category Name</label>
             <input id="name" name="name" type="text" class="form-control" placeholder="{{ $category->name }}"

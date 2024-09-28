@@ -82,7 +82,7 @@ class CategoryController extends Controller
     }
 
     // Fungsi Untuk Memulihkan Category *Restore
-    public function restored_category($slug)
+    public function restoring_category($slug)
     {
         $category = Category::withTrashed()->where('slug', $slug)->first();
         $category->restore();
