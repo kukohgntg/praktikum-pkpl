@@ -57,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('add-book', [BookController::class, 'add_book_view']);
     Route::post('add-book', [BookController::class, 'add_book']);
+
+    Route::get('edit-book/{slug}', [BookController::class, 'edit_book_view']);
+    Route::put('edit-book/{slug}', [BookController::class, 'edit_book']);
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
