@@ -9,8 +9,5 @@
         "axios": "^1.7.4",
         "laravel-vite-plugin": "^1.0",
         "vite": "^5.0"
-    },
-    "dependencies": {
-        "@vercel/speed-insights": "^1.0.12"
     }
 }
