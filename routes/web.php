@@ -73,9 +73,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('inactive-users', [UserController::class, 'inactive_users_view']);
 
-    Route::get('detail-user/{slug}', [UserController::class, 'detail_users_view']);
+    Route::get('detail-user/{slug}', [UserController::class, 'detail_user_view']);
 
     Route::get('activating-user/{slug}', [UserController::class, 'activating_user']);
+    
+    Route::get('ban-user/{slug}', [UserController::class, 'ban_user_view']);
+    Route::get('banning-user/{slug}', [UserController::class, 'banning_user']);
+    
+    Route::get('banned-users', [UserController::class, 'banned_users_view']);
+
+    Route::get('unban-user/{slug}', [UserController::class, 'unban_user_view']);
+    Route::get('unbanning-user/{slug}', [UserController::class, 'unbanning_user']);
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);

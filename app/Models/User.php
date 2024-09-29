@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, Sluggable;
+    use HasFactory, Notifiable, Sluggable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

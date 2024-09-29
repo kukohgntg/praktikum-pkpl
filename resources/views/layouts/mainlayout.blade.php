@@ -98,8 +98,8 @@
                             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="inactive-users">
                                 Inactive User List
                             </a>
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Something else here
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="banned-users">
+                                Banned Users List
                             </a>
                         </div>
                     </div>

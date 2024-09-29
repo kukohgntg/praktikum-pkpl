@@ -21,7 +21,7 @@ class UserController extends Controller
         return view('inactive-users', ['users' => $users]);
     }
 
-    public function detail_users_view($slug)
+    public function detail_user_view($slug)
     {
         $user = User::where('slug', $slug)->first();
         return view('detail-users', ['user' => $user]);
@@ -33,6 +33,42 @@ class UserController extends Controller
         $user->status = 'active';
         $user->save();
         return redirect('detail-user/' . $slug)->with('status', 'User Activated Successfully');
+    }
+
+    public function ban_user_view($slug)
+    {
+        // dd($request->all());
+        $user = User::where('slug', $slug)->first();
+        return view('ban-user', ['user' => $user]);
+    }
+
+    // Fungsi Untuk Menghapus Category *Delete
+    public function banning_user($slug)
+    {
+        $user = User::where('slug', $slug)->first();
+        $user->delete();
+        return redirect('users')->with('status', 'User Banned Successfully');
+    }
+
+    public function banned_users_view()
+    {
+        $banned_users = User::onlyTrashed()->get();
+        return view('banned-users', ['banned_users' => $banned_users]);
+    }
+
+    public function unban_user_view($slug)
+    {
+        // dd($user);
+        $user = User::withTrashed()->where('slug', $slug)->first();
+        return view('unban-user', ['user' => $user]);
+    }
+
+    // Fungsi Untuk Memulihkan User *Restore
+    public function unbanning_user($slug)
+    {
+        $user = User::onlyTrashed()->where('slug', $slug)->first();
+        $user->restore();
+        return redirect('banned-users')->with('status', 'User Unbanned Successfully');
     }
 
     // for client
