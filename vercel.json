@@ -17,14 +17,13 @@
         }
     ],
     "public": true,
-    "buildCommand": "vite build",
+    "buildCommand": "composer install && php artisan key:generate && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && vite build",
     "outputDirectory": "public",
     "env": {
         "APP_NAME": "praktikum-pkpl",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://praktikum-pkpl.vercel.app",
-        "APP_KEY": "APP_KEY=base64:iFhE1i+6OJC/f/UBi2WqVsVmZ8FXI0OMq8DlRs3LcKg=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
