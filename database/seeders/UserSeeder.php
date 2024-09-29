@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'role_id' => 1,
             'username' => 'admin',
+            'slug' => 'admin',
             'password' => 'admin', // Laravel akan otomatis melakukan hashing
             'address' => 'perpustakaan',
             'status' => 'active',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
         User::create([
             'role_id' => 2,
             'username' => 'kukohgntg',
+            'slug' => 'kukohgntg',
             'password' => 'kukohgntg', // Laravel akan otomatis melakukan hashing
             'address' => 'rumah kukoh',
             'status' => 'active',

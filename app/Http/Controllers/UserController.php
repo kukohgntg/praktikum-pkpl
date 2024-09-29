@@ -15,10 +15,10 @@ class UserController extends Controller
         return view('users-list', ['users' => $users]);
     }
 
-    public function inactive_users_view() {
-        $users = User::where('status', 'inactive')->get();
+    public function inactive_users_view()
+    {
+        $users = User::where('status', 'inactive')->where('role_id', 2)->get();
         return view('inactive-users-list', ['users' => $users]);
-
     }
 
     // for client

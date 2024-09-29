@@ -10,10 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Book extends Model
 {
-    use HasFactory;
-    use Sluggable;
-    use SoftDeletes;
-    
+    use HasFactory, Sluggable, SoftDeletes;
+
 
     protected $fillable = [
         'book_code',
@@ -40,6 +38,4 @@ class Book extends Model
     {
         return $this->belongsToMany(Category::class, 'book_category', 'book_id', 'category_id');
     }
-
-    
 }

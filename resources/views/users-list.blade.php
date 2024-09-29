@@ -12,7 +12,7 @@
             <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
             <div>
                 <a href="banned-users" class="btn btn-primary">Banned Users List</a>
-                <a href="add-category" class="btn btn-primary">Add User</a>
+                {{-- <a href="add-category" class="btn btn-primary">Aprove User List</a> --}}
             </div>
         </div>
         <div class="card-body">
