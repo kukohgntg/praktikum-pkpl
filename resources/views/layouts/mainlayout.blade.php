@@ -36,19 +36,40 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Login
+                                <!-- Menampilkan icon person SVG untuk semua kondisi -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                </svg>
+                                <!-- Jika user sudah login, tampilkan nama pengguna di samping ikon -->
+                                @if (Auth::check())
+                                    {{ Auth::user()->role_id != '1' && '2' }}
+                                @endif
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="login">Login</a></li>
-                                <li><a class="dropdown-item" href="register">Register</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                @if (Auth::check())
+                                    <!-- Jika user sudah login -->
+                                    <!-- Opsi untuk Profile -->
+                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <!-- Opsi untuk Logout -->
+                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                @else
+                                    <!-- Jika user belum login, tampilkan Login dan Register -->
+                                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/register">Register</a></li>
+                                @endif
                             </ul>
                         </li>
                     </ul>
                 </div>
+
+
             </div>
         </nav>
 
