@@ -11,7 +11,7 @@ class UserController extends Controller
     // for admin
     public function users_view()
     {
-        $users = User::where('role_id', 2)->get();
+        $users = User::where('status', 'active')->where('role_id', 2)->get();
         return view('users', ['users' => $users]);
     }
 
@@ -25,6 +25,14 @@ class UserController extends Controller
     {
         $user = User::where('slug', $slug)->first();
         return view('detail-users', ['user' => $user]);
+    }
+
+    public function activating_user($slug)
+    {
+        $user = User::where('slug', $slug)->first();
+        $user->status = 'active';
+        $user->save();
+        return redirect('detail-user/' . $slug)->with('status', 'User Activated Successfully');
     }
 
     // for client

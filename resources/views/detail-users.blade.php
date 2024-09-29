@@ -5,16 +5,12 @@
 @section('content')
     <h1>Detail User</h1>
     <div class="mt-3">
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
             </div>
         @endif
-        <form action="" method="GET">
+        <form action="/activating-user/{{ $user->slug }}" method="GET">
 
             <label for="username" class="form-label">Username</label>
             <input id="username" name="username" type="text" class="form-control" placeholder="{{ $user->username }}"

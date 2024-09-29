@@ -75,6 +75,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('detail-user/{slug}', [UserController::class, 'detail_users_view']);
 
+    Route::get('activating-user/{slug}', [UserController::class, 'activating_user']);
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);
