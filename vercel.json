@@ -17,7 +17,7 @@
         }
     ],
     "public": true,
-    "buildCommand": "composer install && php artisan key:generate && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && vite build",
+    "buildCommand": "vite build",
     "outputDirectory": "public",
     "env": {
         "APP_NAME": "praktikum-pkpl",
