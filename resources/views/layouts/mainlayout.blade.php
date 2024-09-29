@@ -15,65 +15,70 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
-            <div class="container-fluid">
-                <!-- Pemicu Offcanvas -->
-                <a class="navbar-brand" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                    aria-controls="offcanvasExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                      </svg>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
+        <div class="container-fluid">
+            <!-- Pemicu Offcanvas (hanya ditampilkan jika pengguna sudah login) -->
+            @if (Auth::check())
+                <a class="navbar-brand d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                    role="button" aria-controls="offcanvasExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-caret-right-fill me-2" viewBox="0 0 16 16">
+                        <path
+                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
                     Perpustakaan
                 </a>
+            @else
+                <!-- Jika pengguna belum login, hanya tampilkan teks tanpa ikon -->
+                <a class="navbar-brand" href="#">
+                    Perpustakaan
+                </a>
+            @endif
 
-                <!-- Toggle Button for Mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- Collapsible Navbar Content -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto"> <!-- ms-auto digunakan untuk memposisikan ke kanan -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <!-- Menampilkan icon person SVG untuk semua kondisi -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                                </svg>
-                                <!-- Jika user sudah login, tampilkan nama pengguna di samping ikon -->
-                                @if (Auth::check())
-                                    {{ Auth::user()->role_id != '1' && '2' }}
-                                @endif
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                @if (Auth::check())
-                                    <!-- Jika user sudah login -->
-                                    <!-- Opsi untuk Profile -->
-                                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <!-- Opsi untuk Logout -->
-                                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                                @else
-                                    <!-- Jika user belum login, tampilkan Login dan Register -->
-                                    <li><a class="dropdown-item" href="/login">Login</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="/register">Register</a></li>
-                                @endif
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-
+            <!-- Collapsible Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <!-- Menampilkan icon person SVG untuk semua kondisi -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="bi bi-person-fill me-2" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            <!-- Jika user sudah login, tampilkan nama pengguna di samping ikon -->
+                            @if (Auth::check())
+                                {{ Auth::user()->username }} <!-- Tampilkan nama user setelah login -->
+                            @endif
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end rounded">
+                            @if (Auth::check())
+                                <!-- Jika user sudah login -->
+                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            @else
+                                <!-- Jika user belum login, tampilkan Login dan Register -->
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                            @endif
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
     <main>
