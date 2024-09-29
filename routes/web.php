@@ -73,6 +73,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('inactive-users', [UserController::class, 'inactive_users_view']);
 
+    Route::get('detail-user/{slug}', [UserController::class, 'detail_users_view']);
+
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);

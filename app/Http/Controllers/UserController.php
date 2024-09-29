@@ -12,13 +12,19 @@ class UserController extends Controller
     public function users_view()
     {
         $users = User::where('role_id', 2)->get();
-        return view('users-list', ['users' => $users]);
+        return view('users', ['users' => $users]);
     }
 
     public function inactive_users_view()
     {
         $users = User::where('status', 'inactive')->where('role_id', 2)->get();
-        return view('inactive-users-list', ['users' => $users]);
+        return view('inactive-users', ['users' => $users]);
+    }
+
+    public function detail_users_view($slug)
+    {
+        $user = User::where('slug', $slug)->first();
+        return view('detail-users', ['user' => $user]);
     }
 
     // for client

@@ -25,7 +25,7 @@
         <a href="add-category" class="btn btn-primary">Add Category</a>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <table class="table table-hover" id="datatablesSimple">
             <thead>
                 <tr>

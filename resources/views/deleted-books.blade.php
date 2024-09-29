@@ -17,7 +17,7 @@
             <h5 class="card-title mb-0">DataTable Book</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
             <a href="/books" class="btn btn-primary">Back</a>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-hover" id="datatablesSimple">
                 <thead>
                     <tr>
