@@ -10,11 +10,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PublicController;
 
-// Route untuk halaman awal (welcome page)
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route untuk halaman awal (index page)
+Route::get('/', [PublicController::class, 'index']);
 
 // Group Route khusus untuk pengguna yang belum login (guest)
 Route::middleware([OnlyGuest::class])->group(function () {
