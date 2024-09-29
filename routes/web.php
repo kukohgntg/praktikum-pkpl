@@ -13,7 +13,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 Route::middleware([OnlyGuest::class])->group(function () {
     Route::get('login', [AuthController::class, 'login_view'])->name('login');
@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     Route::get('categories', [CategoryController::class, 'categories_view']);
 
     Route::get('add-category', [CategoryController::class, 'add_category_view']);
@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('restoring-category/{slug}', [CategoryController::class, 'restoring_category']);
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     Route::get('books', [BookController::class, 'books_view']);
 
     Route::get('add-book', [BookController::class, 'add_book_view']);
@@ -68,18 +68,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('restoring-book/{slug}', [BookController::class, 'restoring_book']);
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     Route::get('users', [UserController::class, 'users_view']);
 
     Route::get('inactive-users', [UserController::class, 'inactive_users_view']);
 
     Route::get('detail-user/{slug}', [UserController::class, 'detail_user_view']);
-
     Route::get('activating-user/{slug}', [UserController::class, 'activating_user']);
-    
+
     Route::get('ban-user/{slug}', [UserController::class, 'ban_user_view']);
     Route::get('banning-user/{slug}', [UserController::class, 'banning_user']);
-    
+
     Route::get('banned-users', [UserController::class, 'banned_users_view']);
 
     Route::get('unban-user/{slug}', [UserController::class, 'unban_user_view']);
