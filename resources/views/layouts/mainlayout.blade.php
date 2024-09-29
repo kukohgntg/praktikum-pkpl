@@ -114,6 +114,11 @@
                             Logout
                         </a>
                     @else
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
+                            href="/">
+                            Book List
+                        </a>
+
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
                             href="profile">
                             Profile
