@@ -27,8 +27,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('rentlogs', [RentLogContrller::class, 'rentlogs_view']);
 
-    Route::get('users', [UserController::class, 'users_view']);
-
     Route::get('profile', [UserController::class, 'profile_view'])->middleware([OnlyClient::class]);
 
     Route::get('logout', [AuthController::class, 'logout']);
@@ -68,6 +66,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('restore-book/{slug}', [BookController::class, 'restore_book_view']);
     Route::get('restoring-book/{slug}', [BookController::class, 'restoring_book']);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('users', [UserController::class, 'users_view']);
+
+    Route::get('inactive-users', [UserController::class, 'inactive_users_view']);
+
 });
 
 // Route::get('login', [AuthController::class, 'login'])->name('login')->middleware(OnlyGuest::class);

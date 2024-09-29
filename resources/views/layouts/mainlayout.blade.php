@@ -92,11 +92,11 @@
                     </a>
                     <div class="collapse" id="collapseExample">
                         <div class="list-group list-group-flush">
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Action
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="users">
+                                User List
                             </a>
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
-                                Another action
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="inactive-users">
+                                Inactive User List
                             </a>
                             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#">
                                 Something else here
