@@ -15,24 +15,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <!-- Pemicu Offcanvas (hanya ditampilkan jika pengguna sudah login) -->
             @if (Auth::check())
-                <a class="navbar-brand d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                    role="button" aria-controls="offcanvasExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-caret-right-fill me-2" viewBox="0 0 16 16">
-                        <path
-                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                    </svg>
-                    Perpustakaan
-                </a>
+            <a class="navbar-brand d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                role="button" aria-controls="offcanvasExample">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                    class="bi bi-caret-right-fill me-2" viewBox="0 0 16 16">
+                    <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+                Perpustakaan
+            </a>
             @else
-                <!-- Jika pengguna belum login, hanya tampilkan teks tanpa ikon -->
-                <a class="navbar-brand" href="#">
-                    Perpustakaan
-                </a>
+            <!-- Jika pengguna belum login, hanya tampilkan teks tanpa ikon -->
+            <a class="navbar-brand" href="#">
+                Perpustakaan
+            </a>
             @endif
 
             <!-- Toggle Button for Mobile -->
@@ -54,24 +54,24 @@
                             </svg>
                             <!-- Jika user sudah login, tampilkan nama pengguna di samping ikon -->
                             @if (Auth::check())
-                                {{ Auth::user()->username }} <!-- Tampilkan nama user setelah login -->
+                            {{ Auth::user()->username }} <!-- Tampilkan nama user setelah login -->
                             @endif
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end rounded">
                             @if (Auth::check())
-                                <!-- Jika user sudah login -->
-                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            <!-- Jika user sudah login -->
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             @else
-                                <!-- Jika user belum login, tampilkan Login dan Register -->
-                                <li><a class="dropdown-item" href="/login">Login</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                            <!-- Jika user belum login, tampilkan Login dan Register -->
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/register">Register</a></li>
                             @endif
                         </ul>
                     </li>
@@ -84,81 +84,81 @@
     <main>
 
         @if (Auth::user())
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-
-                {{-- {{ request()->route()->uri() }} --}}
-
-                <div class="list-group list-group-flush">
-
-                    @if (Auth::user()->role_id == 1)
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
-                            href="dashboard">
-                            Dashboard
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
-                            href="books">
-                            Books
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories/*', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
-                            href="categories">
-                            Categories
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
-                            href="rentlogs">
-                            Rent Logs
-                        </a>
-
-                        <!-- Collapse Dropdown List Item -->
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                            data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample">
-                            Users
-                        </a>
-                        <div class="collapse" id="collapseExample">
-                            <div class="list-group list-group-flush">
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                                    href="users">
-                                    User List
-                                </a>
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                                    href="inactive-users">
-                                    Inactive User List
-                                </a>
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                                    href="banned-users">
-                                    Banned Users List
-                                </a>
-                            </div>
-                        </div>
-
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                            href="logout">
-                            Logout
-                        </a>
-                    @else
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
-                            href="/">
-                            Book List
-                        </a>
-
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
-                            href="profile">
-                            Profile
-                        </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                            href="logout">
-                            Logout
-                        </a>
-                    @endif
-
-
-                </div>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+
+            {{-- {{ request()->route()->uri() }} --}}
+
+            <div class="list-group list-group-flush">
+
+                @if (Auth::user()->role_id == 1)
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
+                    href="dashboard">
+                    Dashboard
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                    href="books">
+                    Books
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories/*', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
+                    href="categories">
+                    Categories
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
+                    href="rentlogs">
+                    Rent Logs
+                </a>
+
+                <!-- Collapse Dropdown List Item -->
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Users
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                            href="users">
+                            User List
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                            href="inactive-users">
+                            Inactive User List
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                            href="banned-users">
+                            Banned Users List
+                        </a>
+                    </div>
+                </div>
+
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                    href="logout">
+                    Logout
+                </a>
+                @else
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
+                    href="/">
+                    Book List
+                </a>
+
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
+                    href="profile">
+                    Profile
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                    href="logout">
+                    Logout
+                </a>
+                @endif
+
+
+            </div>
+        </div>
         @endif
 
 
@@ -172,22 +172,22 @@
 
     </footer>
 
+    {{-- Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+
     </script>
     {{-- jQuery-Core --}}
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
         crossorigin="anonymous"></script>
+
     {{-- simple-datatables --}}
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ URL::asset('/js/datatables-simple-demo.js') }}"></script>
+
     {{-- select2 --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-    </script>
-    <script type="text/javascript" src="{{ URL::asset('/js/datatables-simple-demo.js') }}"></script>
+
     {{-- vercel-speed-insights --}}
     <script>
         window.si = window.si || function() {
@@ -195,6 +195,7 @@
         };
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
+
 </body>
 
 </html>
