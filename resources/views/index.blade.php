@@ -15,7 +15,7 @@
                     <span class="input-group-text bg-primary text-white">
                         <i class="bi bi-filter"></i>
                     </span>
-                    <select id="category" name="category" class="form-select js-example-basic-single">
+                    <select id="category" name="category" class="form-select">
                         <option value="" selected disabled>Choose Category</option>
                         @foreach ($categories as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -86,12 +86,5 @@
             </div>
         </div>
     </section>
-
-    <!-- Select2 and Bootstrap Icons -->
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
 
 @endsection

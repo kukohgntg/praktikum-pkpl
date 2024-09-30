@@ -1,9 +1,6 @@
 @extends('layouts.mainlayout')
-
 @section('title', 'Add Book')
-
 @section('content')
-
 <h1>Add New Book</h1>
 <div class="mt-3">
     @if ($errors->any())
@@ -40,7 +37,7 @@
 
         <div class="mb-3">
             <label for="categories" class="form-label">kategori</label>
-            <select id="categories" name="categories[]" class="form-select js-example-basic-multiple"
+            <select id="categories" name="categories[]" class="form-select form-select-multiple"
                 multiple="multiple" aria-label="Multiple select example">
                 @foreach ($categories as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -56,11 +53,5 @@
 
     </form>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
-    });
-</script>
 
 @endsection
