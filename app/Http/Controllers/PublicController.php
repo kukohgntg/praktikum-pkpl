@@ -14,7 +14,11 @@ class PublicController extends Controller
         $categories = Category::all();
 
         if ($request->category || $request->title) {
-            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+            // $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+
+            $books = Book::whereHas('categories', function ($q) use ($request) {
+                $q->where('category_id', $request->category);
+            })->get();
         } else {
             $books = Book::all();
         }
