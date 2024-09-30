@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
-        $books = Book::all();
+
+        if ($request->category || $request->title) {
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+        } else {
+            $books = Book::all();
+        }
         return view('index', ['books' => $books, 'categories' => $categories]);
     }
 }
