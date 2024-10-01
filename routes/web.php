@@ -110,7 +110,7 @@ Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     // Route::get('lends-books', [LendController::class, 'lends_books_view']);
 
     Route::get('lend-book', [LendController::class, 'lend_book_view']);
-    Route::get('lending-book', [LendController::class, 'lending_book']);
+    Route::post('lending-book', [LendController::class, 'lending_book']);
 
     // Rute pengembalian buku oleh admin
     Route::get('return-lending ', [LendController::class, 'return_lending_view']);
