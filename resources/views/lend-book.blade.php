@@ -6,7 +6,15 @@
 
     <h1>Halaman Lend Book</h1>
 
-    <form action="lending-book" method="POST" class="mt-5">
+    <div class="mt-3">
+        @if (session('message'))
+            <div class="alert {{ session('alert-class') }}">
+                {{ session('message') }}
+            </div>
+        @endif
+    </div>
+
+    <form action="lending-book" method="POST" class="mt-3">
         @csrf
 
         <div class="mb-3">

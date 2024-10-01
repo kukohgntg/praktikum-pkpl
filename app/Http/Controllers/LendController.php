@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LendController extends Controller
 {
@@ -27,7 +28,13 @@ class LendController extends Controller
 
         if ($book['status'] == 'not available') {
             // dd('buku sedang dipinjam');
+            Session::flash('message', 'Cannot loan, the book is not available');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('lend-book');
         }
         // dd('buku berhasil dipinjam');
+        Session::flash('message', 'Successful Loan Of The Book');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('lend-book');
     }
 }
