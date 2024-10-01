@@ -26,7 +26,6 @@ class BookController extends Controller
     // Fungsi untuk menambahkan buku baru
     public function adding_book(Request $request)
     {
-        // dd($request->all());
         // Validasi input
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
@@ -38,9 +37,14 @@ class BookController extends Controller
         $newImageName = '';
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
-            $newImageName = $request->title . '-' . now()->timestamp . '.' . $extension;
 
-            // Menyimpan file di disk 'public'
+            // Bersihkan title agar tidak mengandung karakter ilegal
+            $cleanedTitle = preg_replace('/[^A-Za-z0-9\-_]/', '-', $request->title); // Hanya karakter yang diizinkan
+
+            // Buat nama file baru
+            $newImageName = $cleanedTitle . '-' . now()->timestamp . '.' . $extension;
+
+            // Simpan file di storage disk 'public'
             $request->file('image')->storeAs('cover', $newImageName, 'public');
         }
 
@@ -79,11 +83,10 @@ class BookController extends Controller
         if ($request->hasFile('image')) {
             $extension = $request->file('image')->getClientOriginalExtension();
 
-            // Bersihkan title untuk nama file yang aman
-            $cleanedTitle = preg_replace('/[^\w\-]+/', '-', $request->title);
-            $cleanedTitle = str_replace('"', '', $cleanedTitle); // Menghapus tanda petik ganda
+            // Bersihkan title agar tidak mengandung karakter ilegal
+            $cleanedTitle = preg_replace('/[^A-Za-z0-9\-_]/', '-', $request->title);
 
-            // Buat nama file baru yang aman
+            // Buat nama file baru
             $newImageName = $cleanedTitle . '-' . now()->timestamp . '.' . $extension;
 
             // Hapus gambar lama jika ada
@@ -91,7 +94,7 @@ class BookController extends Controller
                 Storage::disk('public')->delete('cover/' . $book->cover);
             }
 
-            // Menyimpan file di disk 'public'
+            // Simpan file di storage disk 'public'
             $request->file('image')->storeAs('cover', $newImageName, 'public');
 
             // Mengisi kolom cover dengan nama file yang disimpan
