@@ -10,7 +10,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LendController;
 use App\Http\Controllers\PublicController;
+use App\Models\Role;
 
 // Route untuk halaman awal (index page)
 Route::get('/', [PublicController::class, 'index']);
@@ -101,4 +103,16 @@ Route::middleware(['auth', OnlyAdmin::class])->group(function () {
 
     Route::get('unban-user/{slug}', [UserController::class, 'unban_user_view']); // Form unban pengguna
     Route::get('unbanning-user/{slug}', [UserController::class, 'unbanning_user']); // Proses unban pengguna
+});
+
+Route::middleware(['auth', OnlyAdmin::class])->group(function () {
+    // Rute peminjaman buku oleh admin
+    // Route::get('lends-books', [LendController::class, 'lends_books_view']);
+
+    Route::get('lend-book', [LendController::class, 'lend_book_view']);
+    Route::get('lending-book', [LendController::class, 'lending_book']);
+
+    // Rute pengembalian buku oleh admin
+    Route::get('return-lending ', [LendController::class, 'return_lending_view']);
+    Route::post('returning-lending ', [LendController::class, 'returning_lending']);
 });

@@ -37,7 +37,7 @@
 
         <div class="mb-3">
             <label for="categories" class="form-label">kategori</label>
-            <select id="categories" name="categories[]" class="form-select form-select-multiple"
+            <select id="categories" name="categories[]" class="form-select "
                 multiple="multiple" aria-label="Multiple select example">
                 @foreach ($categories as $item)
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
