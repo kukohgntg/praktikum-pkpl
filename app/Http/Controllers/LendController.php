@@ -33,28 +33,38 @@ class LendController extends Controller
             Session::flash('alert-class', 'alert-danger');
             return redirect('lend-book');
         } else {
-            try {
-                DB::beginTransaction();
+            // Hitung buku yang sedang dipinjam oleh user (actual_return_date masih null)
+            $count = LoanRecord::where('user_id', $request->user_id)->whereNull('actual_return_date')->count();
 
-                // Proses insert data di tabel loan_records
-                LoanRecord::create($request->all());
-
-                // Proses update status buku menjadi 'not available'
-                $book->status = 'not available';
-                $book->save();
-
-                // Transaksi selesai
-                DB::commit();
-
-                Session::flash('message', 'Successful Loan Of The Book');
-                Session::flash('alert-class', 'alert-success');
-                return redirect('lend-book');
-            } catch (\Throwable $throwable) {
-                // Jika terjadi kesalahan, rollback transaksi
-                DB::rollBack();
-                Session::flash('message', 'Error When Loan Of The Book');
+            if ($count >= 3) {
+                // Jika user telah meminjam 3 buku dan belum mengembalikan
+                Session::flash('message', 'Cannot loan, user has reached the limit of book');
                 Session::flash('alert-class', 'alert-danger');
                 return redirect('lend-book');
+            } else {
+                try {
+                    DB::beginTransaction();
+
+                    // Proses insert data di tabel loan_records
+                    LoanRecord::create($request->all());
+
+                    // Proses update status buku menjadi 'not available'
+                    $book->status = 'not available';
+                    $book->save();
+
+                    // Transaksi selesai
+                    DB::commit();
+
+                    Session::flash('message', 'Successful Loan Of The Book');
+                    Session::flash('alert-class', 'alert-success');
+                    return redirect('lend-book');
+                } catch (\Throwable $throwable) {
+                    // Jika terjadi kesalahan, rollback transaksi
+                    DB::rollBack();
+                    Session::flash('message', 'Error When Loan Of The Book');
+                    Session::flash('alert-class', 'alert-danger');
+                    return redirect('lend-book');
+                }
             }
         }
     }
