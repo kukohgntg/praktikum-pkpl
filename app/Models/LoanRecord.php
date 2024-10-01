@@ -13,6 +13,6 @@ class LoanRecord extends Model
         'user_id',
         'book_id',
         'loan_date',
-        'return_date'
+        'return_date',
     ];
 }

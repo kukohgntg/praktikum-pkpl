@@ -36,11 +36,6 @@
         "VIEW_COMPILED_PATH": "/tmp",
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node",
-        "DB_CONNECTION": "mysql",
-        "DB_HOST": "pr1.h.filess.io",
-        "DB_PORT": "3307",
-        "DB_DATABASE": "praktikumpkpl_happenofor",
-        "DB_USERNAME": "praktikumpkpl_happenofor",
-        "DB_PASSWORD": "5ceca3131f3139fb38c43c76158ddf24304bcf04"
+        "DB_URL": "mysql://praktikumpkpl_happenofor:5ceca3131f3139fb38c43c76158ddf24304bcf04@pr1.h.filess.io:3307/praktikumpkpl_happenofor"
     }
 }

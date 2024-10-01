@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Book;
+use App\Models\LoanRecord;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class LendController extends Controller
@@ -21,20 +23,39 @@ class LendController extends Controller
     {
         $request['loan_date'] = Carbon::now()->toDateTimeString();
         $request['return_date'] = Carbon::now()->addDay(3)->toDateTimeString();
-        // dd($request->all());
 
-        $book = Book::findOrFail($request->book_id)->only('status');
-        // dd($book);
+        // Ambil objek book, bukan array
+        $book = Book::findOrFail($request->book_id);
 
-        if ($book['status'] == 'not available') {
-            // dd('buku sedang dipinjam');
+        if ($book->status == 'not available') {
+            // Buku tidak tersedia untuk dipinjam
             Session::flash('message', 'Cannot loan, the book is not available');
             Session::flash('alert-class', 'alert-danger');
             return redirect('lend-book');
+        } else {
+            try {
+                DB::beginTransaction();
+
+                // Proses insert data di tabel loan_records
+                LoanRecord::create($request->all());
+
+                // Proses update status buku menjadi 'not available'
+                $book->status = 'not available';
+                $book->save();
+
+                // Transaksi selesai
+                DB::commit();
+
+                Session::flash('message', 'Successful Loan Of The Book');
+                Session::flash('alert-class', 'alert-success');
+                return redirect('lend-book');
+            } catch (\Throwable $throwable) {
+                // Jika terjadi kesalahan, rollback transaksi
+                DB::rollBack();
+                Session::flash('message', 'Error When Loan Of The Book');
+                Session::flash('alert-class', 'alert-danger');
+                return redirect('lend-book');
+            }
         }
-        // dd('buku berhasil dipinjam');
-        Session::flash('message', 'Successful Loan Of The Book');
-        Session::flash('alert-class', 'alert-success');
-        return redirect('lend-book');
     }
 }
