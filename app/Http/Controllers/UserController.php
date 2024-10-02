@@ -77,6 +77,9 @@ class UserController extends Controller
     // for client
     public function profile_view()
     {
-        return view('profile');
+        // dd(Auth::user());
+        $user = Auth::user();
+        $records = LoanRecord::with(['users', 'books'])->where('user_id', $user->id)->get();
+        return view('profile', ['user' => $user, 'records' => $records]);
     }
 }

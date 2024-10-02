@@ -14,7 +14,7 @@ class LendController extends Controller
 {
     public function lend_book_view()
     {
-        $users = User::where('role_id', '!=', 1)->get();
+        $users = User::where('role_id', '!=', 1)->where('status', '!=', 'inactive')->get();
         $books = Book::where('status', '!=', 'not available')->get();
         return view('lend-book', ['users' => $users, 'books' => $books]);
     }
