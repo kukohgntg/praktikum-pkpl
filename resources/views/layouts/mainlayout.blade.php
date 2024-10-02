@@ -123,9 +123,9 @@
                     href="categories">
                     Categories
                 </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('rentlogs') ? 'active' : '' }}"
-                    href="rentlogs">
-                    Rent Logs
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('loan-records') ? 'active' : '' }}"
+                    href="loan-records">
+                    Loan Records
                 </a>
 
                 <!-- Collapse Dropdown List Item -->

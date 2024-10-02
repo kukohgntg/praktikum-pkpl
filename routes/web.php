@@ -11,8 +11,8 @@ use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LendController;
+use App\Http\Controllers\LoanRecordController;
 use App\Http\Controllers\PublicController;
-use App\Models\Role;
 
 // Route untuk halaman awal (index page)
 Route::get('/', [PublicController::class, 'index']);
@@ -115,4 +115,6 @@ Route::middleware(['auth', OnlyAdmin::class])->group(function () {
     // Rute pengembalian buku oleh admin
     Route::get('return-lending ', [LendController::class, 'return_lending_view']);
     Route::post('returning-lending ', [LendController::class, 'returning_lending']);
+
+    Route::get('loan-records', [LoanRecordController::class, 'loan_records_view']);
 });
