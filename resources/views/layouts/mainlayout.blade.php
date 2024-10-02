@@ -107,7 +107,11 @@
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('lend-book') ? 'active' : '' }}"
                     href="lend-book">
-                    Lend books
+                    Lend a books
+                </a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('return-lending') ? 'active' : '' }}"
+                    href="return-lending">
+                    Return a books
                 </a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
                     href="books">
