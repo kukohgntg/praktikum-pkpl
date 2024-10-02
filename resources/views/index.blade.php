@@ -15,7 +15,7 @@
                     <span class="input-group-text bg-primary text-white">
                         <i class="bi bi-filter"></i>
                     </span>
-                    <select id="category" name="category" class="form-select">
+                    <select id="category" name="category" class="form-select form-select-single">
                         <option value="" selected disabled>Choose Category</option>
                         @foreach ($categories as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>

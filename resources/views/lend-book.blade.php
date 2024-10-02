@@ -19,7 +19,7 @@
 
         <div class="mb-3">
             <label for="user_id" class="form-label">Username</label>
-            <select id="user_id" name="user_id" class="form-select ">
+            <select id="user_id" name="user_id" class="form-select form-select-single">
 
                 <option value="" selected disabled>Choose Username</option>
 
@@ -32,7 +32,7 @@
 
         <div class="mb-3">
             <label for="book_id" class="form-label">title</label>
-            <select id="book_id" name="book_id" class="form-select ">
+            <select id="book_id" name="book_id" class="form-select form-select-single">
 
                 <option value="" selected disabled>Choose Book Title</option>
 

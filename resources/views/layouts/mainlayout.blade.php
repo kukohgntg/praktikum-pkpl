@@ -7,21 +7,15 @@
     <title>Perpustakaan | @yield('title')</title>
 
     {{-- Bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    {{-- simple-datatables --}}
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+    {{-- DataTables --}}
+    <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap5.min.css') }}">
 
     {{-- Select2 --}}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    {{-- If error turn on this --}}
-    {{-- Or for RTL support --}}
-    {{-- <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/select2-bootstrap-5-theme.min.css') }}">
 
 </head>
 
@@ -195,54 +189,63 @@
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 
-    {{-- jQuery-Core --}}
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
+    {{-- jQuery --}}
+    <script src="{{ asset('/js/jquery-3.7.1.min.js') }}"></script>
 
     {{-- Bootstrap --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+
+    {{-- DataTables --}}
+    <script src="{{ asset('/js/dataTables.min.js') }}"></script>
+    <script src="{{ asset('/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script>
+        $('#datatablesSimple').DataTable();
     </script>
 
-    {{-- simple-datatables --}}
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
-    <script type="text/javascript" src="{{ URL::asset('/js/datatables-simple-demo.js') }}"></script>
-
-    {{-- select2 --}}
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    {{-- Select2 --}}
+    <script src="{{ asset('/js/select2.min.js') }}"></script>
     <script>
-        // Basic
-        $("select").select2({
+        $('.form-select-single').select2({
             theme: "bootstrap-5",
         });
 
-        // Small using Select2 properties
-        $("#form-select-sm").select2({
+        $('.form-select-multiple').select2({
             theme: "bootstrap-5",
-            containerCssClass: "select2--small", // For Select2 v4.0
-            selectionCssClass: "select2--small", // For Select2 v4.1
-            dropdownCssClass: "select2--small",
         });
 
-        // Small using Bootstrap 5 classes
-        $("#form-select-sm").select2({
-            theme: "bootstrap-5",
-            dropdownParent: $("#form-select-sm").parent(), // Required for dropdown styling
-        });
+        // jika error pada Select2/DataTables uncomment di bawah ini
+        // // Basic
+        // $("select").select2({
+        //     theme: "bootstrap-5",
+        // });
 
-        // Large using Select2 properties
-        $("#form-select-lg").select2({
-            theme: "bootstrap-5",
-            containerCssClass: "select2--large", // For Select2 v4.0
-            selectionCssClass: "select2--large", // For Select2 v4.1
-            dropdownCssClass: "select2--large",
-        });
+        // // Small using Select2 properties
+        // $("#form-select-sm").select2({
+        //     theme: "bootstrap-5",
+        //     containerCssClass: "select2--small", // For Select2 v4.0
+        //     selectionCssClass: "select2--small", // For Select2 v4.1
+        //     dropdownCssClass: "select2--small",
+        // });
 
-        // Large using Bootstrap 5 classes
-        $("#form-select-lg").select2({
-            theme: "bootstrap-5",
-            dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
-        });
+        // // Small using Bootstrap 5 classes
+        // $("#form-select-sm").select2({
+        //     theme: "bootstrap-5",
+        //     dropdownParent: $("#form-select-sm").parent(), // Required for dropdown styling
+        // });
+
+        // // Large using Select2 properties
+        // $("#form-select-lg").select2({
+        //     theme: "bootstrap-5",
+        //     containerCssClass: "select2--large", // For Select2 v4.0
+        //     selectionCssClass: "select2--large", // For Select2 v4.1
+        //     dropdownCssClass: "select2--large",
+        // });
+
+        // // Large using Bootstrap 5 classes
+        // $("#form-select-lg").select2({
+        //     theme: "bootstrap-5",
+        //     dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
+        // });
     </script>
 </body>
 

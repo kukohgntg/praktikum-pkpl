@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoanRecord;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,9 @@ class UserController extends Controller
     public function detail_user_view($slug)
     {
         $user = User::where('slug', $slug)->first();
-        return view('detail-users', ['user' => $user]);
+        //menampilkan data loan records di tiap user 
+        $records = LoanRecord::with(['users', 'books'])->where('user_id', $user->id)->get();
+        return view('detail-users', ['user' => $user, 'records' => $records]);
     }
 
     public function activating_user($slug)
