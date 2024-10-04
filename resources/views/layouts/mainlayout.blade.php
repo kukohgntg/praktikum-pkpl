@@ -24,19 +24,16 @@
         <div class="container-fluid">
             <!-- Pemicu Offcanvas (hanya ditampilkan jika pengguna sudah login) -->
             @if (Auth::check())
-            <a class="navbar-brand d-flex align-items-center" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                role="button" aria-controls="offcanvasExample">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                    class="bi bi-caret-right-fill me-2" viewBox="0 0 16 16">
-                    <path
-                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                </svg>
-                Perpustakaan
+            <a class="navbar-brand d-flex align-items-center col-6 col-sm-4 col-md-3 col-lg-2"
+                data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <img src="{{ asset('/images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
+                    class="img-fluid">
             </a>
             @else
             <!-- Jika pengguna belum login, hanya tampilkan teks tanpa ikon -->
-            <a class="navbar-brand" href="#">
-                Perpustakaan
+            <a class="navbar-brand col-6 col-sm-4 col-md-3 col-lg-2" href="#">
+                <img src="{{ asset('/images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
+                    class="img-fluid">
             </a>
             @endif
 
@@ -92,7 +89,7 @@
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">SIP Menu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
@@ -175,9 +172,14 @@
         @endif
 
 
+        <div>
+            @yield('header')
+        </div>
+
         <div class="p-5 mt-5"> <!-- Tambahkan mt-5 untuk memberi jarak di atas -->
             @yield('content')
         </div>
+
     </main>
 
 
