@@ -18,7 +18,7 @@
         <a href="/books" class="btn btn-primary">Back</a>
     </div>
     <div class="card-body table-responsive">
-        <table class="table table-hover" id="datatablesSimple">
+        <table class="table table-hover" id="dataTables">
             <thead>
                 <tr>
                     <th scope="col">No.</th>

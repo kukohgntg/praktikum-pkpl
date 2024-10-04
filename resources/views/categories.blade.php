@@ -21,12 +21,12 @@
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
         <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
         <div>
-        <a href="deleted-categories" class="btn btn-primary">Restoe Category</a>
-        <a href="add-category" class="btn btn-primary">Add Category</a>
+            <a href="deleted-categories" class="btn btn-primary">Restoe Category</a>
+            <a href="add-category" class="btn btn-primary">Add Category</a>
         </div>
     </div>
     <div class="card-body table-responsive">
-        <table class="table table-hover" id="datatablesSimple">
+        <table class="table table-hover" id="dataTables">
             <thead>
                 <tr>
                     <th scope="col">No.</th>

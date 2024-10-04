@@ -98,6 +98,7 @@
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
+
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
                     href="dashboard">
                     Dashboard
@@ -126,7 +127,7 @@
                     </div>
                 </div>
 
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories/*', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
                     href="categories">
                     Categories
                 </a>
@@ -162,12 +163,13 @@
                     href="logout">
                     Logout
                 </a>
+
                 @else
+
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
                     href="/">
                     Book List
                 </a>
-
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
                     href="profile">
                     Profile
@@ -176,13 +178,12 @@
                     href="logout">
                     Logout
                 </a>
-                @endif
 
+                @endif
 
             </div>
         </div>
         @endif
-
 
         <div>
             @yield('header')
@@ -217,7 +218,7 @@
     <script src="{{ asset('/js/dataTables.min.js') }}"></script>
     <script src="{{ asset('/js/dataTables.bootstrap5.min.js') }}"></script>
     <script>
-        $('#datatablesSimple').DataTable();
+        $('#dataTables').DataTable();
     </script>
 
     {{-- Select2 --}}
@@ -264,7 +265,6 @@
         //     theme: "bootstrap-5",
         //     dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
         // });
-
     </script>
 </body>
 

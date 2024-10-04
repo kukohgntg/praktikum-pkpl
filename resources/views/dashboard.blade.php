@@ -82,7 +82,7 @@
         DataTable Example
     </div>
     <div class="card-body table-responsive">
-        <table class="table table-striped table-hover" id="datatablesSimple">
+        <table class="table table-striped table-hover" id="dataTables">
             <thead>
                 <tr>
                     <th scope="col">No.</th>
