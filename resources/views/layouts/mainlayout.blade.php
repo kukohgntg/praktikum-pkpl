@@ -102,18 +102,30 @@
                     href="dashboard">
                     Dashboard
                 </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('lend-book') ? 'active' : '' }}"
-                    href="lend-book">
-                    Lend a books
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('return-lending') ? 'active' : '' }}"
-                    href="return-lending">
-                    Return a books
-                </a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
-                    href="books">
+
+                <!-- Collapse Dropdown List Books -->
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    data-bs-toggle="collapse" href="#collapseBooks" role="button" aria-expanded="false"
+                    aria-controls="collapseBooks">
                     Books
                 </a>
+                <div class="collapse" id="collapseBooks">
+                    <div class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                            href="books">
+                            Book List
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('lend-book') ? 'active' : '' }}"
+                            href="lend-book">
+                            Book Lending
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('return-lending') ? 'active' : '' }}"
+                            href="return-lending">
+                            Book Return
+                        </a>
+                    </div>
+                </div>
+
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories/*', 'add-category', 'edit-category/*', 'delete-category/*', 'deleted-categories', 'restore-category/*') ? 'active' : '' }}"
                     href="categories">
                     Categories
@@ -123,13 +135,13 @@
                     Loan Records
                 </a>
 
-                <!-- Collapse Dropdown List Item -->
+                <!-- Collapse Dropdown List Users -->
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
-                    data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
+                    data-bs-toggle="collapse" href="#collapseUsers" role="button" aria-expanded="false"
+                    aria-controls="collapseUsers">
                     Users
                 </a>
-                <div class="collapse" id="collapseExample">
+                <div class="collapse" id="collapseUsers">
                     <div class="list-group list-group-flush">
                         <a class="list-group-item list-group-item-action list-group-item-light p-3"
                             href="users">
@@ -219,7 +231,7 @@
             theme: "bootstrap-5",
         });
 
-        // jika error pada Select2/DataTables uncomment di bawah ini
+        // // jika error pada Select2/DataTables uncomment di bawah ini
         // // Basic
         // $("select").select2({
         //     theme: "bootstrap-5",
@@ -252,6 +264,7 @@
         //     theme: "bootstrap-5",
         //     dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
         // });
+
     </script>
 </body>
 
