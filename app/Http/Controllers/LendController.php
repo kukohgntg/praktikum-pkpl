@@ -78,32 +78,38 @@ class LendController extends Controller
 
     public function returning_lending(Request $request)
     {
-        // dd($request);
-        //user & buku yang dipilih benar & buku belum dikembalikan, maka berhasil mengembalikan buku
-        // mengecek data peminjaman dari table loan_records 
-        $loanRecord = LoanRecord::where('user_id', $request->user_id)->where('book_id', $request->book_id)->where('actual_return_date', null);
+        // Mengecek data peminjaman dari table loan_records
+        $loanRecord = LoanRecord::where('user_id', $request->user_id)
+            ->where('book_id', $request->book_id)
+            ->where('actual_return_date', null);
 
-        // mendapatkan data dari table loan_records
+        // Mendapatkan data dari table loan_records
         $loanData = $loanRecord->first();
 
-        //mengambil data buku yang telah dipilih dipilah
+        // Menghitung jumlah record yang ditemukan
         $dataExists = $loanRecord->count();
-        // dd($dataExists);
 
-        //mendapatkan kondisi benar
+        // Jika ditemukan satu record yang valid
         if ($dataExists == 1) {
-            //menggembalikan buku
+            // Mengembalikan buku dengan memperbarui tanggal pengembalian
             $loanData->actual_return_date = Carbon::now()->toDateTimeString();
             $loanData->save();
 
-            Session::flash('message', 'Successful Rerurn Of The Book');
+            // Mendapatkan buku yang dipinjam berdasarkan book_id
+            $book = Book::findOrFail($request->book_id);
+
+            // Memperbarui status buku menjadi 'in stock'
+            $book->status = 'in stock';
+            $book->save();
+
+            Session::flash('message', 'Successful Return Of The Book');
             Session::flash('alert-class', 'alert-success');
             return redirect('return-lending');
         } else {
-            //user / buku yang dipilih salah, maka muncul pesan kesalahan
-            Session::flash('message', 'error, check the borrowing history and match the name and book');
+            // Jika data peminjaman tidak ditemukan atau salah user/buku
+            Session::flash('message', 'Error, check the borrowing history and match the name and book');
             Session::flash('alert-class', 'alert-danger');
-            return redirect('lend-book');
+            return redirect('return-lending');
         }
     }
 }

@@ -23,7 +23,7 @@
                     <th scope="col">Username</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
-                    <th scope="col  colspan=" 3" ">Action</th>
+                    <th scope="col">Action</th>
                     </tr>
                 </thead>
 
@@ -42,11 +42,7 @@
                     <td>{{ $item->address }}</td>
                     <td>
                         <a href="/detail-user/{{ $item->slug }}">Detail</a>
-                    </td>
-                    <td>
                         <a href="/edit-user/{{ $item->slug }}">Edit</a>
-                    </td>
-                    <td>
                         <a href="/ban-user/{{ $item->slug }}">Ban User</a>
                     </td>
                 </tr>
@@ -59,7 +55,7 @@
                     <th scope="col">Username</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
-                    <th scope="col colspan=" 3"">Action</th>
+                    <th scope="col">Action</th>
                 </tr>
             </tfoot>
         </table>
