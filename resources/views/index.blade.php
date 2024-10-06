@@ -8,7 +8,7 @@
     <header class="bg-dark text-white">
         <div class="container-fluid p-0 position-relative">
             <!-- Menggunakan img-fluid untuk gambar responsif -->
-            <img src="{{ asset('images/header.png') }}" alt="Library Header" class="img-fluid w-100"
+            <img src="{{ asset('./images/header.png') }}" alt="Library Header" class="img-fluid w-100"
                 style="max-height: 500px; object-fit: cover;">
 
             <!-- Posisi teks di tengah gambar -->

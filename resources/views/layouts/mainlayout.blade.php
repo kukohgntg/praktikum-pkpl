@@ -7,15 +7,15 @@
     <title>Perpustakaan | @yield('title')</title>
 
     {{-- Bootstrap --}}
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     {{-- DataTables --}}
-    <link rel="stylesheet" href="{{ asset('/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/dataTables.bootstrap5.min.css') }}">
 
     {{-- Select2 --}}
-    <link rel="stylesheet" href="{{ asset('/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/select2-bootstrap-5-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/select2-bootstrap-5-theme.min.css') }}">
 
 </head>
 
@@ -26,13 +26,13 @@
             @if (Auth::check())
             <a class="navbar-brand d-flex align-items-center col-6 col-sm-4 col-md-3 col-lg-2"
                 data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                <img src="{{ asset('/images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
+                <img src="{{ asset('./images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
                     class="img-fluid">
             </a>
             @else
             <!-- Jika pengguna belum login, hanya tampilkan teks tanpa ikon -->
             <a class="navbar-brand col-6 col-sm-4 col-md-3 col-lg-2" href="#">
-                <img src="{{ asset('/images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
+                <img src="{{ asset('./images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
                     class="img-fluid">
             </a>
             @endif
@@ -209,20 +209,20 @@
     <script defer src="/_vercel/speed-insights/script.js"></script>
 
     {{-- jQuery --}}
-    <script src="{{ asset('/js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('./js/jquery-3.7.1.min.js') }}"></script>
 
     {{-- Bootstrap --}}
-    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('./js/bootstrap.bundle.min.js') }}"></script>
 
     {{-- DataTables --}}
-    <script src="{{ asset('/js/dataTables.min.js') }}"></script>
-    <script src="{{ asset('/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('./js/dataTables.min.js') }}"></script>
+    <script src="{{ asset('./js/dataTables.bootstrap5.min.js') }}"></script>
     <script>
         $('#dataTables').DataTable();
     </script>
 
     {{-- Select2 --}}
-    <script src="{{ asset('/js/select2.min.js') }}"></script>
+    <script src="{{ asset('./js/select2.min.js') }}"></script>
     <script>
         $('.form-select-single').select2({
             theme: "bootstrap-5",
