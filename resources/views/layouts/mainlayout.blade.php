@@ -8,7 +8,8 @@
 
     {{-- Bootstrap --}}
     {{-- <link rel="stylesheet" href="{{ asset('./css/bootstrap.min.css') }}"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     {{-- DataTables --}}
@@ -19,7 +20,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('./css/select2.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     {{-- <link rel="stylesheet" href="{{ asset('./css/select2-bootstrap-5-theme.min.css') }}"> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
 </head>
 
@@ -102,7 +104,6 @@
             <div class="list-group list-group-flush">
 
                 @if (Auth::user()->role_id == 1)
-
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
                     href="dashboard">
                     Dashboard
@@ -167,9 +168,7 @@
                     href="logout">
                     Logout
                 </a>
-
                 @else
-
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
                     href="/">
                     Book List
@@ -182,7 +181,6 @@
                     href="logout">
                     Logout
                 </a>
-
                 @endif
 
             </div>
@@ -204,7 +202,15 @@
 
     </footer>
 
-    {{-- vercel-speed-insights --}}
+    {{-- Vercel Web Analytics --}}
+    <script>
+        window.va = window.va || function() {
+            (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    {{-- Vercel Speed Insights --}}
     <script>
         window.si = window.si || function() {
             (window.siq = window.siq || []).push(arguments);
@@ -214,11 +220,14 @@
 
     {{-- jQuery --}}
     {{-- <script src="{{ asset('./js/jquery-3.7.1.min.js') }}"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     {{-- Bootstrap --}}
     {{-- <script src="{{ asset('./js/bootstrap.bundle.min.js') }}"></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 
     {{-- DataTables --}}
     {{-- <script src="{{ asset('./js/dataTables.min.js') }}"></script> --}}
