@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 29 Sep 2024 pada 12.12
+-- Waktu pembuatan: 06 Okt 2024 pada 10.08
 -- Versi server: 8.0.30
 -- Versi PHP: 8.3.11
 
@@ -44,9 +44,11 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `book_code`, `title`, `slug`, `cover`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '9786230034763', 'Bahagia Beragama Bersama Gus Baha', 'bahagia-beragama-bersama-gus-baha', 'Bahagia Beragama Bersama Gus Baha-1727579567.jpg', 'in stock', '2024-09-28 20:12:47', '2024-09-28 20:12:47', NULL),
-(2, '9786020658049', 'Home Sweet Loan', 'home-sweet-loan', 'Home Sweet Loan-1727610531.jpg', 'in stock', '2024-09-29 04:48:51', '2024-09-29 04:48:51', NULL),
-(3, '9786025753251', 'Il Principe (Sang Pangeran)', 'il-principe-sang-pangeran', 'Il Principe (Sang Pangeran)-1727610669.jpg', 'in stock', '2024-09-29 04:51:09', '2024-09-29 04:51:09', NULL);
+(1, '9786230034763', 'Bahagia Beragama Bersama Gus Baha', 'bahagia-beragama-bersama-gus-baha', 'Bahagia Beragama Bersama Gus Baha-1727579567.jpg', 'in stock', '2024-09-28 20:12:47', '2024-10-06 03:02:40', NULL),
+(2, '9786020658049', 'Home Sweet Loan', 'home-sweet-loan', 'Home Sweet Loan-1727610531.jpg', 'not available', '2024-09-29 04:48:51', '2024-10-01 10:49:06', NULL),
+(3, '9786025753251', 'Il Principe (Sang Pangeran)', 'il-principe-sang-pangeran', 'Il Principe (Sang Pangeran)-1727610669.jpg', 'not available', '2024-09-29 04:51:09', '2024-10-01 11:08:01', NULL),
+(4, '9786231648600', 'The Amazing Stories of Quran', 'the-amazing-stories-of-quran', 'The Amazing Stories of Quran-1727738212.jpg', 'not available', '2024-09-30 16:16:52', '2024-10-01 11:07:20', NULL),
+(5, '9786020530772', 'Wangsit (Pawang Soal Sulit) CPNS & PPPK 2024/2025', 'wangsit-pawang-soal-sulit-cpns-pppk-2024-2025', 'Wangsit-Pawang-Soal-Sulit-CPNS-PPPK-2024-2025-1727812445.jpg', 'in stock', '2024-10-01 12:19:12', '2024-10-01 12:54:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,12 @@ CREATE TABLE `book_category` (
 INSERT INTO `book_category` (`id`, `book_id`, `category_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, NULL, NULL),
 (2, 1, 4, NULL, NULL),
-(3, 3, 111, NULL, NULL);
+(3, 3, 111, NULL, NULL),
+(4, 4, 1, NULL, NULL),
+(5, 4, 4, NULL, NULL),
+(6, 5, 177, NULL, NULL),
+(7, 5, 181, NULL, NULL),
+(8, 5, 207, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -442,6 +449,33 @@ CREATE TABLE `job_batches` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `loan_records`
+--
+
+CREATE TABLE `loan_records` (
+  `id` bigint UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
+  `book_id` bigint UNSIGNED NOT NULL,
+  `loan_date` date NOT NULL,
+  `return_date` date NOT NULL,
+  `actual_return_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `loan_records`
+--
+
+INSERT INTO `loan_records` (`id`, `user_id`, `book_id`, `loan_date`, `return_date`, `actual_return_date`, `created_at`, `updated_at`) VALUES
+(12, 2, 2, '2024-10-01', '2024-10-04', '2024-10-02', '2024-10-01 10:49:06', '2024-10-02 10:01:55'),
+(13, 2, 1, '2024-10-01', '2024-10-04', '2024-10-06', '2024-10-01 11:06:20', '2024-10-06 03:02:40'),
+(14, 2, 4, '2024-10-01', '2024-10-04', '2024-10-04', '2024-10-01 11:07:20', '2024-10-01 11:07:20'),
+(15, 2, 3, '2024-10-01', '2024-10-04', NULL, '2024-10-01 11:08:01', '2024-10-01 11:08:01');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -472,24 +506,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2024_09_28_163732_add_deleted_at_column_to_books_table', 12),
 (21, '2024_09_28_172307_create_sessions_table', 13),
 (22, '2024_09_29_050558_add_slug_column_to_useers_table', 14),
-(23, '2024_09_29_075710_add_deleted_at_column_to_users_table', 15);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `rent_logs`
---
-
-CREATE TABLE `rent_logs` (
-  `id` bigint UNSIGNED NOT NULL,
-  `user_id` bigint UNSIGNED NOT NULL,
-  `book_id` bigint UNSIGNED NOT NULL,
-  `rent_date` date NOT NULL,
-  `return_date` date NOT NULL,
-  `actual_return_date` date DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(23, '2024_09_29_075710_add_deleted_at_column_to_users_table', 15),
+(24, '2024_10_01_122828_remove_rent_logs_table', 16),
+(26, '2024_10_01_123354_create_loan_records_table', 17);
 
 -- --------------------------------------------------------
 
@@ -557,7 +576,8 @@ INSERT INTO `users` (`id`, `role_id`, `username`, `slug`, `password`, `phone`, `
 (3, 2, 'hapis', 'hapis', '$2y$12$i0Vq.5LWQOwMWPMuJfY3Ie/.1Wx/idjTFW34n1/Fu9rZL8bRlxIDy', NULL, 'rumah hapis', 'active', '2024-09-28 22:14:53', '2024-09-29 00:41:41', NULL),
 (4, 2, 'rapli', 'rapli', '$2y$12$jH4TpFpG.1ZDxShQlvU.LuJ/.91PIjqS2hPFYniTg6TogjRW6blSK', NULL, 'rumah rapli', 'active', '2024-09-29 00:44:35', '2024-09-29 02:00:27', NULL),
 (5, 2, 'piki', 'piki', '$2y$12$eBcgx5zliWD5ArgOhHb16uM8mJnK.mH/A4h04rMF/ZG.TLEQ1HnYq', NULL, 'rumah piki', 'active', '2024-09-29 00:47:25', '2024-09-29 01:37:06', '2024-09-29 01:37:06'),
-(6, 2, 'reno', 'reno', '$2y$12$iYl0ent35KoUiwRjYKvgdOG0QhZUDILcyxkR6N8hMLHc8URcGI92.', NULL, 'rumah reno', 'active', '2024-09-29 00:51:13', '2024-09-29 01:35:51', '2024-09-29 01:35:51');
+(6, 2, 'reno', 'reno', '$2y$12$iYl0ent35KoUiwRjYKvgdOG0QhZUDILcyxkR6N8hMLHc8URcGI92.', NULL, 'rumah reno', 'active', '2024-09-29 00:51:13', '2024-09-29 01:35:51', '2024-09-29 01:35:51'),
+(7, 2, 'toti', 'toti', '$2y$12$y.igwoezhwpa090uI9v8y.oyzpb5/m4SCz9a9OeTZRXVpD0Pd639K', NULL, 'rumah toti', 'inactive', '2024-10-02 07:55:07', '2024-10-02 07:55:07', NULL);
 
 --
 -- Indexes for dumped tables
@@ -617,18 +637,18 @@ ALTER TABLE `job_batches`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `loan_records`
+--
+ALTER TABLE `loan_records`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `loan_records_user_id_foreign` (`user_id`),
+  ADD KEY `loan_records_book_id_foreign` (`book_id`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `rent_logs`
---
-ALTER TABLE `rent_logs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rent_logs_user_id_foreign` (`user_id`),
-  ADD KEY `rent_logs_book_id_foreign` (`book_id`);
 
 --
 -- Indeks untuk tabel `roles`
@@ -660,13 +680,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `book_category`
 --
 ALTER TABLE `book_category`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
@@ -687,16 +707,16 @@ ALTER TABLE `jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `loan_records`
+--
+ALTER TABLE `loan_records`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT untuk tabel `rent_logs`
---
-ALTER TABLE `rent_logs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -708,7 +728,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -722,11 +742,11 @@ ALTER TABLE `book_category`
   ADD CONSTRAINT `book_category_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `rent_logs`
+-- Ketidakleluasaan untuk tabel `loan_records`
 --
-ALTER TABLE `rent_logs`
-  ADD CONSTRAINT `rent_logs_book_id_foreign` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  ADD CONSTRAINT `rent_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+ALTER TABLE `loan_records`
+  ADD CONSTRAINT `loan_records_book_id_foreign` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
+  ADD CONSTRAINT `loan_records_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `users`
