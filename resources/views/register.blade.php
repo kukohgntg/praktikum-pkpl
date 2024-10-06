@@ -11,7 +11,7 @@
 <body>
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="">
+        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="registering">
             @csrf
             <h3 class="text-center">Register</h3>
 
