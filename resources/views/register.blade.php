@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.mainlayout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+@section('title', 'Register')
 
-<body>
+@section('content')
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="/auth/registering">
@@ -16,19 +10,19 @@
             <h3 class="text-center">Register</h3>
 
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             @endif
 
             @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
             @endif
 
             <div class="mb-3">
@@ -56,13 +50,4 @@
         </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        window.si = window.si || function() {
-            (window.siq = window.siq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-</body>
-
-</html>
+@endsection

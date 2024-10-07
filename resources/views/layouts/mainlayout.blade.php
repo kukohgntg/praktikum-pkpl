@@ -35,7 +35,7 @@
                 </a>
             @else
                 {{-- Jika pengguna belum login, tampilkan logo saja tanpa fitur offcanvas --}}
-                <a class="navbar-brand col-6 col-sm-4 col-md-3 col-lg-2" href="#">
+                <a class="navbar-brand col-6 col-sm-4 col-md-3 col-lg-2" href="/">
                     <img src="{{ asset('./images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
                         class="img-fluid">
                 </a>
