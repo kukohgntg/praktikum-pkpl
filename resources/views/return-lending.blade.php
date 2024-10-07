@@ -14,7 +14,7 @@
         @endif
     </div>
 
-    <form action="returning-lending" method="POST" class="mt-3">
+    <form action="/admin/lend/return" method="POST" class="mt-3">
         @csrf
 
         <div class="mb-3">

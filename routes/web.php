@@ -29,15 +29,15 @@ Route::middleware([OnlyGuest::class])->group(function () {
 });
 
 // Group Route untuk pengguna yang sudah login (auth)
-Route::middleware(['auth'])->group(function () {
+Route::prefix('user')->middleware(['auth'])->group(function () {
 
-    // Halaman Dashboard Admin (akses hanya untuk admin)
+    // Dashboard untuk admin
     Route::get('dashboard', [DashboardController::class, 'dashboard_view'])->middleware([OnlyAdmin::class]);
 
-    // Halaman profil pengguna (akses hanya untuk client)
+    // Halaman profil pengguna khusus client
     Route::get('profile', [UserController::class, 'profile_view'])->middleware([OnlyClient::class]);
 
-    // Proses logout user
+    // Proses logout
     Route::get('logout', [AuthController::class, 'logout']);
 });
 
@@ -117,16 +117,16 @@ Route::prefix('admin/users')->middleware(['auth', OnlyAdmin::class])->group(func
 });
 
 // Group Route khusus Admin untuk peminjaman dan pengembalian buku
-Route::middleware(['auth', OnlyAdmin::class])->group(function () {
+Route::prefix('admin/lend')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
-    // Peminjaman buku oleh admin
-    Route::get('lend-book', [LendController::class, 'lend_book_view']); // Halaman peminjaman buku
-    Route::post('lending-book', [LendController::class, 'lending_book']); // Proses peminjaman buku oleh pengguna
+    // Peminjaman buku
+    Route::get('/', [LendController::class, 'lend_book_view']);
+    Route::post('/', [LendController::class, 'lending_book']);
 
-    // Pengembalian buku oleh admin
-    Route::get('return-lending ', [LendController::class, 'return_lending_view']); // Halaman pengembalian buku
-    Route::post('returning-lending ', [LendController::class, 'returning_lending']); // Proses pengembalian buku oleh pengguna
+    // Pengembalian buku
+    Route::get('return', [LendController::class, 'return_lending_view']);
+    Route::post('return', [LendController::class, 'returning_lending']);
 
-    // Histori peminjaman buku
-    Route::get('loan-records', [LoanRecordController::class, 'loan_records_view']); // Halaman histori peminjaman buku
+    // Histori peminjaman
+    Route::get('records', [LoanRecordController::class, 'loan_records_view']);
 });

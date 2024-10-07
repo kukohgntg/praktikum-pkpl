@@ -114,7 +114,7 @@
                     @if (Auth::user()->role_id == 1)
                         {{-- Menu Dashboard --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
-                            href="/dashboard">
+                            href="/user/dashboard">
                             Dashboard
                         </a>
 
@@ -136,13 +136,13 @@
 
                                 {{-- Submenu Book Lending --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('lend-book') ? 'active' : '' }}"
-                                    href="/lend-book">
+                                    href="/admin/lend">
                                     Book Lending
                                 </a>
 
                                 {{-- Submenu Book Return --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('return-lending') ? 'active' : '' }}"
-                                    href="/return-lending">
+                                    href="/admin/lend/return">
                                     Book Return
                                 </a>
                             </div>
@@ -156,7 +156,7 @@
 
                         {{-- Menu Loan Records --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('loan-records') ? 'active' : '' }}"
-                            href="/loan-records">
+                            href="/admin/lend/records">
                             Loan Records
                         </a>
 
@@ -192,7 +192,7 @@
 
                         {{-- Menu Logout --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                            href="/logout">
+                            href="/user/logout">
                             Logout
                         </a>
                     @else
@@ -202,11 +202,11 @@
                             Book List
                         </a>
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
-                            href="/profile">
+                            href="/user/profile">
                             Profile
                         </a>
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
-                            href="/logout">
+                            href="/user/logout">
                             Logout
                         </a>
                     @endif
