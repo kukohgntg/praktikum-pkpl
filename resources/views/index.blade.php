@@ -85,7 +85,7 @@
                             </div>
                             <!-- Product image -->
                             <img class="card-img-top img-fluid"
-                                src="{{ $item != null ? asset('./storage/cover/' . $item->cover) : asset('./images/cover-not-available.png') }}"
+                                src="{{ $item->cover ? asset('storage/cover/' . $item->cover) : asset('images/cover-not-available.png') }}"
                                 alt="{{ $item->title }}" />
                             <!-- Product details -->
                             <div class="card-body p-2">
