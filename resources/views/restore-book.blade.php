@@ -15,7 +15,7 @@
         </ul>
     </div>
     @endif
-    <form action="/restoring-book/{{ $book->slug }}" method="GET">
+    <form action="/admin/books/restore-confirm/{{ $book->slug }}" method="GET">
         @csrf
         <label for="title" class="visually-hidden">Book Title</label>
         <input id="title" name="title" type="text" class="form-control" placeholder="{{ $book->title }}"
@@ -27,7 +27,7 @@
             <button type="submit" class="btn btn-primary me-2">
                 Confirm Restore
             </button>
-            <a href="/deleted-books" role="button" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/books/deleted" role="button" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

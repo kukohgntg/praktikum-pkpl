@@ -56,7 +56,7 @@ class BookController extends Controller
         $book->categories()->sync($request->categories);
 
         // Redirect ke halaman books dengan pesan sukses
-        return redirect('books')->with('status', 'Book Added Successfully');
+        return redirect('/admin/books')->with('status', 'Book Added Successfully');
     }
 
     public function edit_book_view($slug)
@@ -111,7 +111,7 @@ class BookController extends Controller
         }
 
         // Redirect ke halaman books dengan pesan sukses
-        return redirect('books')->with('status', 'Book Updated Successfully');
+        return redirect('/admin/books')->with('status', 'Book Updated Successfully');
     }
 
     public function delete_book_view($slug)
@@ -126,7 +126,7 @@ class BookController extends Controller
     {
         $book = Book::where('slug', $slug)->first();
         $book->delete();
-        return redirect('books')->with('status', 'Book Deleted Successfully');
+        return redirect('/admin/books')->with('status', 'Book Deleted Successfully');
     }
 
     public function deleted_books_view()
@@ -148,6 +148,6 @@ class BookController extends Controller
     {
         $book = Book::onlyTrashed()->where('slug', $slug)->first();
         $book->restore();
-        return redirect('deleted-books')->with('status', 'Book Restored Successfully');
+        return redirect('/admin/books/deleted')->with('status', 'Book Restored Successfully');
     }
 }

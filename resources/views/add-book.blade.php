@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="adding-book" method="POST" enctype="multipart/form-data">
+    <form action="/admin/books/add" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="book_code" class="form-label">book_code</label>
@@ -48,7 +48,7 @@
 
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Save</button>
-            <a href="/books" role="button" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/books" role="button" class="btn btn-secondary">Cancel</a>
         </div>
 
 

@@ -130,7 +130,7 @@
 
                                 {{-- Submenu Book List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
-                                    href="/books">
+                                    href="/admin/books">
                                     Book List
                                 </a>
 

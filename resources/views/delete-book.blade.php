@@ -32,7 +32,7 @@
 
         <!-- Form untuk hapus buku -->
         <div class="col-md-10">
-            <form action="/deleting-book/{{ $book->slug }}" method="GET">
+            <form action="/admin/books/delete-confirm/{{ $book->slug }}" method="GET">
                 @csrf
 
                 <div class="mb-3">
@@ -52,7 +52,7 @@
 
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary me-2">Confirm Delete</button>
-                    <a href="/books" role="button" class="btn btn-secondary">Cancel</a>
+                    <a href="/admin/books" role="button" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

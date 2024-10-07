@@ -21,8 +21,8 @@
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
         <h5 class="card-title mb-0">Data Table Book</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
         <div>
-            <a href="deleted-books" class="btn btn-primary">Restoe Book</a>
-            <a href="add-book" class="btn btn-primary">Add Book</a>
+            <a href="/admin/books/deleted" class="btn btn-primary">Restoe Book</a>
+            <a href="/admin/books/add" class="btn btn-primary">Add Book</a>
         </div>
     </div>
     <div class="card-body table-responsive">
@@ -51,8 +51,8 @@
                     </td>
                     <td>{{ $item->status }}</td>
                     <td>
-                        <a href="/edit-book/{{ $item->slug }}">Edit</a>
-                        <a href="/delete-book/{{ $item->slug }}">Delete</a>
+                        <a href="/admin/books/edit/{{ $item->slug }}">Edit</a>
+                        <a href="/admin/books/delete/{{ $item->slug }}">Delete</a>
                     </td>
                 </tr>
                 @endforeach

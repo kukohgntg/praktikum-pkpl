@@ -66,24 +66,27 @@ Route::prefix('admin/categories')->middleware(['auth', OnlyAdmin::class])->group
 });
 
 // Group Route khusus Admin untuk manajemen buku
-Route::middleware(['auth', OnlyAdmin::class])->group(function () {
+Route::prefix('admin/books')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
-    // Manajemen buku
-    Route::get('books', [BookController::class, 'books_view']); // Halaman daftar buku
+    // Daftar buku
+    Route::get('/', [BookController::class, 'books_view']);
 
-    Route::get('add-book', [BookController::class, 'add_book_view']); // Halaman tambah buku
-    Route::post('adding-book', [BookController::class, 'adding_book']); // Proses tambah buku
+    // Tambah buku
+    Route::get('add', [BookController::class, 'add_book_view']);
+    Route::post('add', [BookController::class, 'adding_book']);
 
-    Route::get('edit-book/{slug}', [BookController::class, 'edit_book_view']); // Halaman edit buku
-    Route::put('editing-book/{slug}', [BookController::class, 'editing_book']); // Proses edit buku
+    // Edit buku
+    Route::get('edit/{slug}', [BookController::class, 'edit_book_view']);
+    Route::put('edit/{slug}', [BookController::class, 'editing_book']);
 
-    Route::get('delete-book/{slug}', [BookController::class, 'delete_book_view']); // Halaman konfirmasi hapus buku
-    Route::get('deleting-book/{slug}', [BookController::class, 'deleting_book']); // Proses hapus buku (soft delete)
+    // Hapus buku (soft delete)
+    Route::get('delete/{slug}', [BookController::class, 'delete_book_view']);
+    Route::get('delete-confirm/{slug}', [BookController::class, 'deleting_book']);
 
-    Route::get('deleted-books', [BookController::class, 'deleted_books_view']); // Halaman buku yang sudah dihapus
-
-    Route::get('restore-book/{slug}', [BookController::class, 'restore_book_view']); // Halaman restore buku
-    Route::get('restoring-book/{slug}', [BookController::class, 'restoring_book']); // Proses restore buku
+    // Restore buku yang dihapus
+    Route::get('deleted', [BookController::class, 'deleted_books_view']);
+    Route::get('restore/{slug}', [BookController::class, 'restore_book_view']);
+    Route::get('restore-confirm/{slug}', [BookController::class, 'restoring_book']);
 });
 
 // Group Route khusus Admin untuk manajemen pengguna
