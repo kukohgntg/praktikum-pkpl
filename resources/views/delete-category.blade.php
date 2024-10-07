@@ -20,12 +20,8 @@
             *Pastikan nama kategori terlebih dahulu
         </div>
         <div class="d-flex justify-content-end">
-            <!-- Tombol Confirm Delete -->
-            <button type="submit" class="btn btn-primary">
-                Confirm Delete
-            </button>
-            <!-- Tombol Cancel dengan margin-start 3 -->
-            <a href="" class="btn btn-secondary ms-3">Cancel</a>
+            <button type="submit" class="btn btn-primary me-2">Confirm Delete</button>
+            <a href="/categories" role="button" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>
