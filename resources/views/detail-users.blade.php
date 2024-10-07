@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center">
     <h1>Detail User</h1>
     @if ($user->status == 'active')
-    <a href="/users" class="btn btn-primary">Back</a>
+    <a href="/admin/users" class="btn btn-primary">Back</a>
     @endif
 </div>
 
@@ -16,7 +16,7 @@
         {{ session('status') }}
     </div>
     @endif
-    <form action="/activating-user/{{ $user->slug }}" method="GET">
+    <form action="/admin/users/activate/{{ $user->slug }}" method="GET">
 
         <label for="username" class="form-label">Username</label>
         <input id="username" name="username" type="text" class="form-control" placeholder="{{ $user->username }}"
@@ -41,7 +41,7 @@
             <button type="submit" class="btn btn-primary me-2">
                 Approve
             </button>
-            <a href="/users" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/users" class="btn btn-secondary">Cancel</a>
             @endif
         </div>
     </form>

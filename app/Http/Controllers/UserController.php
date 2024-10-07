@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = User::where('slug', $slug)->first();
         $user->status = 'active';
         $user->save();
-        return redirect('detail-user/' . $slug)->with('status', 'User Activated Successfully');
+        return redirect('/admin/users/detail/' . $slug)->with('status', 'User Activated Successfully');
     }
 
     public function ban_user_view($slug)
@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $user = User::where('slug', $slug)->first();
         $user->delete();
-        return redirect('users')->with('status', 'User Banned Successfully');
+        return redirect('/admin/users')->with('status', 'User Banned Successfully');
     }
 
     public function banned_users_view()
@@ -71,7 +71,7 @@ class UserController extends Controller
     {
         $user = User::onlyTrashed()->where('slug', $slug)->first();
         $user->restore();
-        return redirect('banned-users')->with('status', 'User Unbanned Successfully');
+        return redirect('/admin/users/banned')->with('status', 'User Unbanned Successfully');
     }
 
     // for client

@@ -17,7 +17,7 @@
 
         <!-- Form untuk hapus buku -->
         <div class="">
-            <form action="/banning-user/{{ $user->slug }}" method="GET">
+            <form action="/admin/users/ban-confirm/{{ $user->slug }}" method="GET">
                 @csrf
                 <label for="username" class="form-label">Username</label>
                 <input id="username" name="username" type="text" class="form-control" placeholder="{{ $user->username }}"
@@ -39,7 +39,7 @@
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-primary me-2">Confirm Banning</button>
-                    <a href="/users" class="btn btn-secondary">Cancel</a>
+                    <a href="/admin/users" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
         </div>

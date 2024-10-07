@@ -41,7 +41,7 @@
                     </td>
                     <td>{{ $item->address }}</td>
                     <td>
-                        <a href="/unban-user/{{ $item->slug }}">Unban</a>
+                        <a href="/admin/users/unban/{{ $item->slug }}">Unban</a>
                     </td>
                 </tr>
                 @endforeach

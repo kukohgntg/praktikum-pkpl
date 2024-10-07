@@ -13,7 +13,7 @@
                 </ul>
             </div>
         @endif
-        <form action="/unbanning-user/{{ $user->slug }}" method="GET">
+        <form action="/admin/users/unban-confirm/{{ $user->slug }}" method="GET">
             @csrf
             <label for="username" class="form-label">Username</label>
             <input id="username" name="username" type="text" class="form-control" placeholder="{{ $user->username }}"
@@ -35,7 +35,7 @@
             </div>
             <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary me-2">Confirm Restore</button>
-                <a href="/banned-users" class="btn btn-secondary">Cancel</a>
+                <a href="/admin/users/banned" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>

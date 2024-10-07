@@ -49,8 +49,8 @@
                     </td>
                     <td>{{ $item->address }}</td>
                     <td>
-                        <a href="/detail-user/{{ $item->slug }}">Detail</a>
-                        <a href="/ban-user/{{ $item->slug }}">Ban User</a>
+                        <a href="/admin/users/detail/{{ $item->slug }}">Detail</a>
+                        <a href="/admin/users/ban/{{ $item->slug }}">Ban User</a>
                     </td>
                 </tr>
                 @endforeach

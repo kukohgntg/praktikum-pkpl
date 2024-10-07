@@ -90,23 +90,30 @@ Route::prefix('admin/books')->middleware(['auth', OnlyAdmin::class])->group(func
 });
 
 // Group Route khusus Admin untuk manajemen pengguna
-Route::middleware(['auth', OnlyAdmin::class])->group(function () {
+Route::prefix('admin/users')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
-    // Manajemen pengguna
-    Route::get('users', [UserController::class, 'users_view']); // Halaman daftar pengguna aktif
+    // Daftar pengguna aktif
+    Route::get('/', [UserController::class, 'users_view']);
 
-    Route::get('inactive-users', [UserController::class, 'inactive_users_view']); // Halaman daftar pengguna tidak aktif
+    // Daftar pengguna tidak aktif
+    Route::get('inactive', [UserController::class, 'inactive_users_view']);
 
-    Route::get('detail-user/{slug}', [UserController::class, 'detail_user_view']); // Halaman detail pengguna
-    Route::get('activating-user/{slug}', [UserController::class, 'activating_user']); // Proses aktivasi pengguna tidak aktif
+    // Detail pengguna
+    Route::get('detail/{slug}', [UserController::class, 'detail_user_view']);
 
-    Route::get('ban-user/{slug}', [UserController::class, 'ban_user_view']); // Halaman konfirmasi banned pengguna
-    Route::get('banning-user/{slug}', [UserController::class, 'banning_user']); // Proses banned pengguna (soft delete)
+    // Aktivasi pengguna
+    Route::get('activate/{slug}', [UserController::class, 'activating_user']);
 
-    Route::get('banned-users', [UserController::class, 'banned_users_view']); // Halaman pengguna yang sudah dibanned
+    // Banned pengguna (soft delete)
+    Route::get('ban/{slug}', [UserController::class, 'ban_user_view']);
+    Route::get('ban-confirm/{slug}', [UserController::class, 'banning_user']);
 
-    Route::get('unban-user/{slug}', [UserController::class, 'unban_user_view']); // Halaman konfirmasi unban pengguna
-    Route::get('unbanning-user/{slug}', [UserController::class, 'unbanning_user']); // Proses unban pengguna
+    // Daftar pengguna yang dibanned
+    Route::get('banned', [UserController::class, 'banned_users_view']);
+
+    // Unban pengguna
+    Route::get('unban/{slug}', [UserController::class, 'unban_user_view']);
+    Route::get('unban-confirm/{slug}', [UserController::class, 'unbanning_user']);
 });
 
 // Group Route khusus Admin untuk peminjaman dan pengembalian buku

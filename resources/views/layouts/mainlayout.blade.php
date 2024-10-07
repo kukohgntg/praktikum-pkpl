@@ -172,19 +172,19 @@
 
                                 {{-- Submenu User List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('users') ? 'active' : '' }}"
-                                    href="/users">
+                                    href="/admin/users">
                                     User List
                                 </a>
 
                                 {{-- Submenu Inactive User List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('inactive-users') ? 'active' : '' }}"
-                                    href="/inactive-users">
+                                    href="/admin/users/inactive">
                                     Inactive User List
                                 </a>
 
                                 {{-- Submenu Banned Users List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('banned-users') ? 'active' : '' }}"
-                                    href="/banned-users">
+                                    href="/admin/users/banned">
                                     Banned Users List
                                 </a>
                             </div>
