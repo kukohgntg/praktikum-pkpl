@@ -11,7 +11,7 @@
 <body>
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="registering">
+        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="/auth/registering">
             @csrf
             <h3 class="text-center">Register</h3>
 
@@ -49,7 +49,9 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Register</button>
             <div class="text-center mt-3">
-                <a href="/login">Already have an account? Login</a>
+                <span>Already have an account?
+                    <a href="/auth/login">Login</a>
+                </span>
             </div>
         </form>
     </div>

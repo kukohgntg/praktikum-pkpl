@@ -13,22 +13,41 @@ use App\Http\Controllers\LendController;
 use App\Http\Controllers\LoanRecordController;
 use App\Http\Controllers\PublicController;
 
-// Route untuk halaman awal (index page)
+/*
+|--------------------------------------------------------------------------
+| Routes untuk Halaman Publik
+|--------------------------------------------------------------------------
+| Rute ini terbuka untuk semua pengunjung, baik yang sudah login maupun belum.
+| Hanya menyediakan halaman utama (homepage).
+*/
+
 Route::get('/', [PublicController::class, 'index']);
 
-// Group Route khusus untuk pengguna yang belum login (guest)
-Route::middleware([OnlyGuest::class])->group(function () {
+/*
+|--------------------------------------------------------------------------
+| Routes Khusus untuk Pengguna yang Belum Login (Guest)
+|--------------------------------------------------------------------------
+| Rute di dalam grup ini hanya bisa diakses oleh pengguna yang belum login.
+| Prefix digunakan untuk mempermudah pengelompokan URL terkait autentikasi.
+*/
+Route::prefix('auth')->middleware([OnlyGuest::class])->group(function () {
 
     // Halaman login dan proses autentikasi
-    Route::get('login', [AuthController::class, 'login_view'])->name('login'); // Halaman login
-    Route::post('authenticating', [AuthController::class, 'authenticating']); // Proses autentikasi login
+    Route::get('login', [AuthController::class, 'login_view'])->name('login');
+    Route::post('authenticating', [AuthController::class, 'authenticating']);
 
-    // Halaman register dan proses registrasi
-    Route::get('register', [AuthController::class, 'register_view']); // Halaman register
-    Route::post('registering', [AuthController::class, 'registering']); // Proses pendaftaran user baru
+    // Halaman registrasi dan proses pendaftaran pengguna baru
+    Route::get('register', [AuthController::class, 'register_view']);
+    Route::post('registering', [AuthController::class, 'registering']);
 });
 
-// Group Route untuk pengguna yang sudah login (auth)
+/*
+|--------------------------------------------------------------------------
+| Routes untuk Pengguna yang Sudah Login
+|--------------------------------------------------------------------------
+| Rute ini hanya bisa diakses oleh pengguna yang telah melakukan login.
+| Prefix 'user' digunakan untuk fitur terkait pengguna secara umum.
+*/
 Route::prefix('user')->middleware(['auth'])->group(function () {
 
     // Dashboard untuk admin
@@ -41,7 +60,13 @@ Route::prefix('user')->middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
 });
 
-// Group Route khusus Admin untuk manajemen kategori
+/*
+|--------------------------------------------------------------------------
+| Routes Khusus Admin untuk Manajemen Kategori
+|--------------------------------------------------------------------------
+| Rute ini dikelompokkan dengan prefix 'admin/categories' dan hanya bisa diakses oleh admin.
+| Menyediakan fitur CRUD (Create, Read, Update, Delete) untuk kategori buku.
+*/
 Route::prefix('admin/categories')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
     // Daftar kategori
@@ -65,7 +90,13 @@ Route::prefix('admin/categories')->middleware(['auth', OnlyAdmin::class])->group
     Route::get('restore-confirm/{slug}', [CategoryController::class, 'restoring_category']);
 });
 
-// Group Route khusus Admin untuk manajemen buku
+/*
+|--------------------------------------------------------------------------
+| Routes Khusus Admin untuk Manajemen Buku
+|--------------------------------------------------------------------------
+| Dikelompokkan dengan prefix 'admin/books', hanya bisa diakses oleh admin.
+| Menyediakan fitur CRUD (Create, Read, Update, Delete) untuk buku.
+*/
 Route::prefix('admin/books')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
     // Daftar buku
@@ -89,7 +120,13 @@ Route::prefix('admin/books')->middleware(['auth', OnlyAdmin::class])->group(func
     Route::get('restore-confirm/{slug}', [BookController::class, 'restoring_book']);
 });
 
-// Group Route khusus Admin untuk manajemen pengguna
+/*
+|--------------------------------------------------------------------------
+| Routes Khusus Admin untuk Manajemen Pengguna
+|--------------------------------------------------------------------------
+| Prefix 'admin/users' digunakan untuk pengelompokan rute manajemen pengguna.
+| Menyediakan fitur aktivasi, banned, unban, dan manajemen pengguna lain.
+*/
 Route::prefix('admin/users')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
     // Daftar pengguna aktif
@@ -116,7 +153,13 @@ Route::prefix('admin/users')->middleware(['auth', OnlyAdmin::class])->group(func
     Route::get('unban-confirm/{slug}', [UserController::class, 'unbanning_user']);
 });
 
-// Group Route khusus Admin untuk peminjaman dan pengembalian buku
+/*
+|--------------------------------------------------------------------------
+| Routes Khusus Admin untuk Peminjaman dan Pengembalian Buku
+|--------------------------------------------------------------------------
+| Rute dengan prefix 'admin/lend' menyediakan fitur peminjaman, pengembalian, 
+| dan histori peminjaman buku yang hanya dapat diakses oleh admin.
+*/
 Route::prefix('admin/lend')->middleware(['auth', OnlyAdmin::class])->group(function () {
 
     // Peminjaman buku

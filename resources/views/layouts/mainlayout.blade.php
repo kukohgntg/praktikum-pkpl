@@ -71,18 +71,18 @@
                         {{-- Menu dropdown untuk opsi profil dan logout jika sudah login --}}
                         <ul class="dropdown-menu dropdown-menu-end rounded">
                             @if (Auth::check())
-                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
                             @else
                                 {{-- Jika belum login, tampilkan opsi login dan register --}}
-                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/auth/login">Login</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                                <li><a class="dropdown-item" href="/auth/register">Register</a></li>
                             @endif
                         </ul>
                     </li>

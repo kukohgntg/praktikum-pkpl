@@ -11,7 +11,7 @@
 <body>
 
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="authenticating">
+        <form class="border p-4 rounded shadow" style="width: 400px;" method="POST" action="/auth/authenticating">
             @csrf
             <h3 class="text-center">Login</h3>
 
@@ -31,7 +31,9 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Login</button>
             <div class="text-center mt-3">
-                <a href="/register">Don't have an account? Register</a>
+                <span>Don't have an account?
+                    <a href="/auth/register">Register</a>
+                </span>
             </div>
         </form>
     </div>
