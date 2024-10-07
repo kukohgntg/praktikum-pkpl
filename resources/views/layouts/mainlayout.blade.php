@@ -113,7 +113,7 @@
                     {{-- Opsi menu hanya untuk admin --}}
                     @if (Auth::user()->role_id == 1)
                         {{-- Menu Dashboard --}}
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('dashboard') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/dashboard') ? 'active' : '' }}"
                             href="/user/dashboard">
                             Dashboard
                         </a>
@@ -124,24 +124,24 @@
                             aria-controls="collapseBooks">
                             Books
                         </a>
-                        <div class="collapse {{ request()->is('books', 'add-book', 'edit-book/*', 'delete-book/*', 'deleted-books', 'restore-book/*', 'lend-book', 'return-lending') ? 'show' : '' }}"
+                        <div class="collapse {{ request()->is('admin/books', 'admin/books/add', 'admin/books/edit/*', 'admin/books/delete/*', 'admin/books/deleted', 'admin/books/restore/*', 'admin/lend', 'admin/lend/return') ? 'show' : '' }}"
                             id="collapseBooks">
                             <div class="list-group list-group-flush">
 
                                 {{-- Submenu Book List --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('books') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/books', 'admin/books/add', 'admin/books/edit/*', 'admin/books/delete/*', 'admin/books/deleted', 'admin/books/restore/*') ? 'active' : '' }}"
                                     href="/admin/books">
                                     Book List
                                 </a>
 
                                 {{-- Submenu Book Lending --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('lend-book') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend') ? 'active' : '' }}"
                                     href="/admin/lend">
                                     Book Lending
                                 </a>
 
                                 {{-- Submenu Book Return --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('return-lending') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend/return') ? 'active' : '' }}"
                                     href="/admin/lend/return">
                                     Book Return
                                 </a>
@@ -149,13 +149,13 @@
                         </div>
 
                         {{-- Menu Categories --}}
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/categories', 'admin/categories/add', 'admin/categories/edit/*', 'admin/categories/delete/*', 'admin/categories/deleted', 'admin/categories/restore/*') ? 'active' : '' }}"
                             href="/admin/categories">
                             Categories
                         </a>
 
                         {{-- Menu Loan Records --}}
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('loan-records') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend/records') ? 'active' : '' }}"
                             href="/admin/lend/records">
                             Loan Records
                         </a>
@@ -166,24 +166,24 @@
                             aria-controls="collapseUsers">
                             Users
                         </a>
-                        <div class="collapse {{ request()->is('users', 'inactive-users', 'banned-users') ? 'show' : '' }}"
+                        <div class="collapse {{ request()->is('admin/users', 'admin/users/inactive', 'admin/users/banned') ? 'show' : '' }}"
                             id="collapseUsers">
                             <div class="list-group list-group-flush">
 
                                 {{-- Submenu User List --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('users') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users') ? 'active' : '' }}"
                                     href="/admin/users">
                                     User List
                                 </a>
 
                                 {{-- Submenu Inactive User List --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('inactive-users') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/inactive') ? 'active' : '' }}"
                                     href="/admin/users/inactive">
                                     Inactive User List
                                 </a>
 
                                 {{-- Submenu Banned Users List --}}
-                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('banned-users') ? 'active' : '' }}"
+                                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/banned') ? 'active' : '' }}"
                                     href="/admin/users/banned">
                                     Banned Users List
                                 </a>
@@ -191,7 +191,7 @@
                         </div>
 
                         {{-- Menu Logout --}}
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/logout') ? 'active' : '' }}"
                             href="/user/logout">
                             Logout
                         </a>
@@ -201,11 +201,11 @@
                             href="/">
                             Book List
                         </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('profile') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/profile') ? 'active' : '' }}"
                             href="/user/profile">
                             Profile
                         </a>
-                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('logout') ? 'active' : '' }}"
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/logout') ? 'active' : '' }}"
                             href="/user/logout">
                             Logout
                         </a>
