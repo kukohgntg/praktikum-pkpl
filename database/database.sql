@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 06 Okt 2024 pada 10.08
+-- Waktu pembuatan: 07 Okt 2024 pada 15.44
 -- Versi server: 8.0.30
 -- Versi PHP: 8.3.11
 
@@ -44,11 +44,14 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `book_code`, `title`, `slug`, `cover`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '9786230034763', 'Bahagia Beragama Bersama Gus Baha', 'bahagia-beragama-bersama-gus-baha', 'Bahagia Beragama Bersama Gus Baha-1727579567.jpg', 'in stock', '2024-09-28 20:12:47', '2024-10-06 03:02:40', NULL),
-(2, '9786020658049', 'Home Sweet Loan', 'home-sweet-loan', 'Home Sweet Loan-1727610531.jpg', 'not available', '2024-09-29 04:48:51', '2024-10-01 10:49:06', NULL),
+(1, '9786230034763', 'Bahagia Beragama Bersama Gus Baha', 'bahagia-beragama-bersama-gus-baha', 'Bahagia Beragama Bersama Gus Baha-1727579567.jpg', 'in stock', '2024-09-28 20:12:47', '2024-10-06 21:36:44', NULL),
+(2, '9786020658049', 'Home Sweet Loan', 'home-sweet-loan', 'Home Sweet Loan-1727610531.jpg', 'not available', '2024-09-29 04:48:51', '2024-10-06 21:36:54', NULL),
 (3, '9786025753251', 'Il Principe (Sang Pangeran)', 'il-principe-sang-pangeran', 'Il Principe (Sang Pangeran)-1727610669.jpg', 'not available', '2024-09-29 04:51:09', '2024-10-01 11:08:01', NULL),
 (4, '9786231648600', 'The Amazing Stories of Quran', 'the-amazing-stories-of-quran', 'The Amazing Stories of Quran-1727738212.jpg', 'not available', '2024-09-30 16:16:52', '2024-10-01 11:07:20', NULL),
-(5, '9786020530772', 'Wangsit (Pawang Soal Sulit) CPNS & PPPK 2024/2025', 'wangsit-pawang-soal-sulit-cpns-pppk-2024-2025', 'Wangsit-Pawang-Soal-Sulit-CPNS-PPPK-2024-2025-1727812445.jpg', 'in stock', '2024-10-01 12:19:12', '2024-10-01 12:54:05', NULL);
+(5, '9786020530772', 'Wangsit (Pawang Soal Sulit) CPNS & PPPK 2024/2025', 'wangsit-pawang-soal-sulit-cpns-pppk-2024-2025', 'Wangsit-Pawang-Soal-Sulit-CPNS-PPPK-2024-2025-1727812445.jpg', 'in stock', '2024-10-01 12:19:12', '2024-10-01 12:54:05', NULL),
+(6, 'p-1', 'prefix', 'prefix', 'prefix-1728308435.png', 'in stock', '2024-10-07 06:40:36', '2024-10-07 07:39:50', NULL),
+(7, 'p-8', 'prefix 8', 'prefix-8', 'prefix-7-1728308974.png', 'in stock', '2024-10-07 06:45:35', '2024-10-07 06:56:26', NULL),
+(8, 'prefix crud', 'prefix crud', 'prefix-crud', '', 'in stock', '2024-10-07 06:57:18', '2024-10-07 06:57:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,7 +79,13 @@ INSERT INTO `book_category` (`id`, `book_id`, `category_id`, `created_at`, `upda
 (5, 4, 4, NULL, NULL),
 (6, 5, 177, NULL, NULL),
 (7, 5, 181, NULL, NULL),
-(8, 5, 207, NULL, NULL);
+(8, 5, 207, NULL, NULL),
+(9, 6, 132, NULL, NULL),
+(10, 6, 138, NULL, NULL),
+(13, 7, 2, NULL, NULL),
+(14, 7, 3, NULL, NULL),
+(15, 8, 132, NULL, NULL),
+(16, 8, 138, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -393,7 +402,10 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`, `del
 (270, 'Tubuh, Pikiran & Jiwa', 'tubuh-pikiran-jiwa', '2024-09-28 20:07:45', '2024-09-28 20:07:45', NULL),
 (271, 'Mindfulness & Meditasi', 'mindfulness-meditasi', '2024-09-28 20:07:45', '2024-09-28 20:07:45', NULL),
 (272, 'Parapsikologi', 'parapsikologi', '2024-09-28 20:07:45', '2024-09-28 20:07:45', NULL),
-(273, 'Spiritualisme', 'spiritualisme', '2024-09-28 20:07:45', '2024-09-28 20:07:45', NULL);
+(273, 'Spiritualisme', 'spiritualisme', '2024-09-28 20:07:45', '2024-10-06 21:49:52', NULL),
+(274, 'prefix edit', 'prefix-edit', '2024-10-07 05:55:14', '2024-10-07 06:16:42', NULL),
+(275, 'prefix test', 'prefix-test', '2024-10-07 06:20:18', '2024-10-07 06:20:18', NULL),
+(276, 'prefix test 3', 'prefix-test-3', '2024-10-07 06:21:14', '2024-10-07 06:22:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -471,7 +483,8 @@ INSERT INTO `loan_records` (`id`, `user_id`, `book_id`, `loan_date`, `return_dat
 (12, 2, 2, '2024-10-01', '2024-10-04', '2024-10-02', '2024-10-01 10:49:06', '2024-10-02 10:01:55'),
 (13, 2, 1, '2024-10-01', '2024-10-04', '2024-10-06', '2024-10-01 11:06:20', '2024-10-06 03:02:40'),
 (14, 2, 4, '2024-10-01', '2024-10-04', '2024-10-04', '2024-10-01 11:07:20', '2024-10-01 11:07:20'),
-(15, 2, 3, '2024-10-01', '2024-10-04', NULL, '2024-10-01 11:08:01', '2024-10-01 11:08:01');
+(15, 2, 3, '2024-10-01', '2024-10-04', NULL, '2024-10-01 11:08:01', '2024-10-01 11:08:01'),
+(16, 8, 6, '2024-10-07', '2024-10-10', '2024-10-07', '2024-10-07 07:37:53', '2024-10-07 07:39:50');
 
 -- --------------------------------------------------------
 
@@ -574,10 +587,13 @@ INSERT INTO `users` (`id`, `role_id`, `username`, `slug`, `password`, `phone`, `
 (1, 1, 'admin', 'admin', '$2y$12$IDqgYwjAE71nyHT4IV4r/uezGtybO0Jeojqq0zJonvNFIRJwNP46i', NULL, 'perpustakaan', 'active', '2024-09-28 09:02:14', '2024-09-28 09:02:14', NULL),
 (2, 2, 'kukohgntg', 'kukohgntg', '$2y$12$EDX1c7iMvmU8tNe2RCbTceJw5dCRisWXdlXdlrOYHi99zh58TMBPq', NULL, 'rumah kukoh', 'active', '2024-09-28 09:02:14', '2024-09-28 09:02:14', NULL),
 (3, 2, 'hapis', 'hapis', '$2y$12$i0Vq.5LWQOwMWPMuJfY3Ie/.1Wx/idjTFW34n1/Fu9rZL8bRlxIDy', NULL, 'rumah hapis', 'active', '2024-09-28 22:14:53', '2024-09-29 00:41:41', NULL),
-(4, 2, 'rapli', 'rapli', '$2y$12$jH4TpFpG.1ZDxShQlvU.LuJ/.91PIjqS2hPFYniTg6TogjRW6blSK', NULL, 'rumah rapli', 'active', '2024-09-29 00:44:35', '2024-09-29 02:00:27', NULL),
+(4, 2, 'rapli', 'rapli', '$2y$12$jH4TpFpG.1ZDxShQlvU.LuJ/.91PIjqS2hPFYniTg6TogjRW6blSK', NULL, 'rumah rapli', 'active', '2024-09-29 00:44:35', '2024-10-06 22:19:33', NULL),
 (5, 2, 'piki', 'piki', '$2y$12$eBcgx5zliWD5ArgOhHb16uM8mJnK.mH/A4h04rMF/ZG.TLEQ1HnYq', NULL, 'rumah piki', 'active', '2024-09-29 00:47:25', '2024-09-29 01:37:06', '2024-09-29 01:37:06'),
 (6, 2, 'reno', 'reno', '$2y$12$iYl0ent35KoUiwRjYKvgdOG0QhZUDILcyxkR6N8hMLHc8URcGI92.', NULL, 'rumah reno', 'active', '2024-09-29 00:51:13', '2024-09-29 01:35:51', '2024-09-29 01:35:51'),
-(7, 2, 'toti', 'toti', '$2y$12$y.igwoezhwpa090uI9v8y.oyzpb5/m4SCz9a9OeTZRXVpD0Pd639K', NULL, 'rumah toti', 'inactive', '2024-10-02 07:55:07', '2024-10-02 07:55:07', NULL);
+(7, 2, 'toti', 'toti', '$2y$12$y.igwoezhwpa090uI9v8y.oyzpb5/m4SCz9a9OeTZRXVpD0Pd639K', NULL, 'rumah toti', 'inactive', '2024-10-02 07:55:07', '2024-10-02 07:55:07', NULL),
+(8, 2, 'javana', 'javana', '$2y$12$Cn.PXtBg.iUL9lF.h.h4quUhTE0T2I9rzHJTBEBde1pYboXb98Vmi', NULL, 'rumah javana', 'active', '2024-10-06 06:16:48', '2024-10-07 07:25:07', NULL),
+(9, 2, 'teh', 'teh', '$2y$12$eqIODrEzdFYvWkmvNPnwKemCfYOAFbPAw89V11U7gEDSYL1Zng/gq', NULL, 'rumah teh', 'active', '2024-10-06 06:20:10', '2024-10-07 07:23:21', NULL),
+(10, 2, 'prefix', 'prefix', '$2y$12$ZilWW7oaRE0RDFD.cX1HAuv4VkQnka3cq/kBorXiyHYS6b3Pg2SbS', NULL, 'rumah prefix', 'active', '2024-10-07 08:10:03', '2024-10-07 08:10:38', NULL);
 
 --
 -- Indexes for dumped tables
@@ -680,19 +696,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `book_category`
 --
 ALTER TABLE `book_category`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -710,7 +726,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT untuk tabel `loan_records`
 --
 ALTER TABLE `loan_records`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -728,7 +744,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
