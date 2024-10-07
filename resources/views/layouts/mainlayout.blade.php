@@ -150,7 +150,7 @@
 
                         {{-- Menu Categories --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('categories') ? 'active' : '' }}"
-                            href="/categories">
+                            href="/admin/categories">
                             Categories
                         </a>
 

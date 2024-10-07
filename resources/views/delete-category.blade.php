@@ -11,7 +11,7 @@
         </ul>
     </div>
     @endif
-    <form action="/deleting-category/{{ $category->slug }}" method="GET">
+    <form action="/admin/categories/delete-confirm/{{ $category->slug }}" method="GET">
         @csrf
         <label for="name" class="visually-hidden">Category Name</label>
         <input id="name" name="name" type="text" class="form-control" placeholder="{{ $category->name }}"
@@ -21,7 +21,7 @@
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Confirm Delete</button>
-            <a href="/categories" role="button" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/categories" role="button" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

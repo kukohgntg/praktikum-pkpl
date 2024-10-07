@@ -21,8 +21,8 @@
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
         <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
         <div>
-            <a href="deleted-categories" class="btn btn-primary">Restoe Category</a>
-            <a href="add-category" class="btn btn-primary">Add Category</a>
+            <a href="/admin/categories/deleted" class="btn btn-primary">Restoe Category</a>
+            <a href="/admin/categories/add" class="btn btn-primary">Add Category</a>
         </div>
     </div>
     <div class="card-body table-responsive">
@@ -41,8 +41,8 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->name }}</td>
                     <td>
-                        <a href="/edit-category/{{ $item->slug }}">Edit</a>
-                        <a href="/delete-category/{{ $item->slug }}">Delete</a>
+                        <a href="/admin/categories/edit/{{ $item->slug }}">Edit</a>
+                        <a href="/admin/categories/delete/{{ $item->slug }}">Delete</a>
                     </td>
                 </tr>
                 @endforeach

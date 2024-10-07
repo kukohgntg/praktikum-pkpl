@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="adding-category" method="POST">
+    <form action="/admin/categories/add" method="POST">
         @csrf
         <label for="name" class="form-label">Category Name</label>
         <input id="name" name="name" type="text" class="form-control" placeholder="Insert Category Name Here" />
@@ -21,7 +21,7 @@
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Save</button>
-            <a href="/categories" role="button" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/categories" role="button" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

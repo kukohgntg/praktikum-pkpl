@@ -15,7 +15,7 @@
     <div class="card-header d-flex justify-content-between align-items-center">
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
         <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
-        <a href="/categories" class="btn btn-primary">Back</a>
+        <a href="/admin/categories" class="btn btn-primary">Back</a>
     </div>
     <div class="card-body table-responsive">
         <table class="table table-hover" id="dataTables">
@@ -33,7 +33,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->name }}</td>
                     <td>
-                        <a href="/restore-category/{{ $item->slug }}">Restore</a>
+                        <a href="/admin/categories/restore/{{ $item->slug }}">Restore</a>
                     </td>
                 </tr>
                 @endforeach

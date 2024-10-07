@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="/editing-category/{{ $category->slug }}" method="POST">
+    <form action="/admin/categories/edit/{{ $category->slug }}" method="POST">
         {{ method_field('PUT') }}
         @csrf
         <label for="name" class="form-label">Category Name</label>
@@ -22,7 +22,7 @@
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Update</button>
-            <a href="/categories" role="button" class="btn btn-secondary">Cancel</a>
+            <a href="/admin/categories" role="button" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>
