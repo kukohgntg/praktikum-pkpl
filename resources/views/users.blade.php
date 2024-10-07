@@ -17,7 +17,7 @@
 <div class="card mt-3">
     <div class="card-header d-flex justify-content-between align-items-center">
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
-        <h5 class="card-title mb-0">DataTable Category</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
+        <h5 class="card-title mb-0">DataTable Users</h5> <!-- mb-0 untuk menghapus margin bawah pada h5 -->
         <!-- <div>
                 <a href="banned-users" class="btn btn-primary">Banned Users List</a>
                 {{-- <a href="add-category" class="btn btn-primary">Aprove User List</a> --}}
@@ -50,7 +50,6 @@
                     <td>{{ $item->address }}</td>
                     <td>
                         <a href="/detail-user/{{ $item->slug }}">Detail</a>
-                        <a href="/edit-user/{{ $item->slug }}">Edit</a>
                         <a href="/ban-user/{{ $item->slug }}">Ban User</a>
                     </td>
                 </tr>

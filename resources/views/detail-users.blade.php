@@ -3,7 +3,13 @@
 @section('title', 'Delete Category')
 
 @section('content')
-<h1>Detail User</h1>
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Detail User</h1>
+    @if ($user->status == 'active')
+    <a href="/users" class="btn btn-primary">Back</a>
+    @endif
+</div>
+
 <div class="mt-3">
     @if (session('status'))
     <div class="alert alert-success">
@@ -32,17 +38,16 @@
         </div>
         <div class="d-flex justify-content-end">
             @if ($user->status == 'inactive')
-            <!-- Tombol Approve -->
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary me-2">
                 Approve
             </button>
+            <a href="/users" class="btn btn-secondary">Cancel</a>
             @endif
-            <!-- Tombol Cancel dengan margin-start 3 -->
-            <a href="" class="btn btn-secondary ms-3">Cancel</a>
         </div>
     </form>
 </div>
 
+@if ($user->status == 'active')
 <div class="card mt-3">
     <div class="card-header d-flex justify-content-between align-items-center">
         <!-- d-flex untuk membuat elemen berada dalam satu baris, justify-content-between untuk memberi jarak antara elemen kiri dan kanan -->
@@ -89,6 +94,6 @@
         </table>
     </div>
 </div>
-
+@endif
 
 @endsection
