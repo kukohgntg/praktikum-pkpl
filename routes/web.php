@@ -20,7 +20,7 @@ Route::get('/', [PublicController::class, 'index']);
 Route::middleware([OnlyGuest::class])->group(function () {
 
     // Halaman login dan proses autentikasi
-    Route::get('login', [AuthController::class, 'login_view']); // Halaman login
+    Route::get('login', [AuthController::class, 'login_view'])->name('login'); // Halaman login
     Route::post('authenticating', [AuthController::class, 'authenticating']); // Proses autentikasi login
 
     // Halaman register dan proses registrasi

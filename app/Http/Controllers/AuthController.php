@@ -34,7 +34,7 @@ class AuthController extends Controller
 
                 Session::flash('status', 'failed');
                 Session::flash('message', 'Your acount inactive, please contact admin!');
-                return redirect('/login');
+                return redirect('login');
             }
             // dd(Auth::user());
             // $request->session()->regenerate();
@@ -49,7 +49,7 @@ class AuthController extends Controller
 
         Session::flash('status', 'failed');
         Session::flash('message', 'Login invalid');
-        return redirect('/login');
+        return redirect('login');
     }
 
     public function register_view()
@@ -70,7 +70,7 @@ class AuthController extends Controller
         $user = User::create($request->all());
         Session::flash('status', 'success');
         Session::flash('message', 'Register success, wait admin approveal');
-        return redirect('/login');
+        return redirect('login');
     }
 
 

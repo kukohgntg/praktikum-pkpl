@@ -47,7 +47,8 @@
         </div>
 
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary mb-3">Save</button>
+            <button type="submit" class="btn btn-primary me-2">Save</button>
+            <a href="/books" role="button" class="btn btn-secondary">Cancel</a>
         </div>
 
 
