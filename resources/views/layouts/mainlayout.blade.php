@@ -128,7 +128,7 @@
                                 {{-- Submenu Book List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/books', 'admin/books/add', 'admin/books/edit/*', 'admin/books/delete/*', 'admin/books/deleted', 'admin/books/restore/*') ? 'active' : '' }}"
                                     href="/admin/books">
-                                    <i class="bi bi-list me-2"></i> Book List
+                                    <i class="bi bi-sort-alpha-down me-2"></i> Book List
                                 </a>
                                 {{-- Submenu Book Lending --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend') ? 'active' : '' }}"
@@ -155,7 +155,13 @@
                             <i class="bi bi-file-earmark-text me-2"></i> Loan Records
                         </a>
 
-                        {{-- Menu collapse untuk Users dengan submenu --}}
+                        {{-- Menu User Management --}}
+                        <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users', 'admin/users/inactive', 'admin/users/banned', 'admin/users', 'admin/users/detail/*', 'admin/users/ban/*', 'admin/users/unban/*') ? 'active' : '' }}"
+                            href="/admin/users">
+                            <i class="bi bi-person-gear me-2"></i> User Management
+                        </a>
+
+                        {{-- Menu collapse untuk Users dengan submenu
                         <a class="list-group-item list-group-item-action list-group-item-light p-3"
                             data-bs-toggle="collapse" href="#collapseUsers" role="button" aria-expanded="false"
                             aria-controls="collapseUsers">
@@ -164,23 +170,23 @@
                         <div class="collapse {{ request()->is('admin/users', 'admin/users/inactive', 'admin/users/banned') ? 'show' : '' }}"
                             id="collapseUsers">
                             <div class="list-group list-group-flush">
-                                {{-- Submenu User List --}}
+                                Submenu User List
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users') ? 'active' : '' }}"
                                     href="/admin/users">
-                                    <i class="bi bi-person-lines-fill me-2"></i> User List
+                                    <i class="bi bi-people me-2"></i> User List
                                 </a>
-                                {{-- Submenu Inactive User List --}}
+                                Submenu Inactive User List
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/inactive') ? 'active' : '' }}"
                                     href="/admin/users/inactive">
-                                    <i class="bi bi-person-dash me-2"></i> Inactive User List
+                                    <i class="bi bi-person-lock me-2"></i> Inactive User List
                                 </a>
-                                {{-- Submenu Banned Users List --}}
+                                Submenu Banned Users List
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/banned') ? 'active' : '' }}"
                                     href="/admin/users/banned">
-                                    <i class="bi bi-person-x-fill me-2"></i> Banned Users List
+                                    <i class="bi bi-person-slash me-2"></i> Banned Users List
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- Menu Logout --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/logout') ? 'active' : '' }}"
@@ -206,10 +212,10 @@
             </div>
         @endif
 
-{{-- Konten halaman yang dinamis sesuai dengan halaman yang sedang diakses --}}
-<div class="p-5 mt-5">
-    @yield('content')
-</div>
+        {{-- Konten halaman yang dinamis sesuai dengan halaman yang sedang diakses --}}
+        <div class="p-5 mt-5">
+            @yield('content')
+        </div>
 
 
     </main>
