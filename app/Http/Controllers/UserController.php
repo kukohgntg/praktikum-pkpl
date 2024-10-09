@@ -13,13 +13,13 @@ class UserController extends Controller
     public function users_view()
     {
         $users = User::where('status', 'active')->where('role_id', 2)->get();
-        return view('users', ['users' => $users]);
+        return view('users.index', ['users' => $users]);
     }
 
     public function inactive_users_view()
     {
         $users = User::where('status', 'inactive')->where('role_id', 2)->get();
-        return view('inactive-users', ['users' => $users]);
+        return view('users.inactive', ['users' => $users]);
     }
 
     public function detail_user_view($slug)
@@ -27,7 +27,7 @@ class UserController extends Controller
         $user = User::where('slug', $slug)->first();
         //menampilkan data loan records di tiap user 
         $records = LoanRecord::with(['users', 'books'])->where('user_id', $user->id)->get();
-        return view('detail-users', ['user' => $user, 'records' => $records]);
+        return view('users.detail', ['user' => $user, 'records' => $records]);
     }
 
     public function activating_user($slug)
@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         // dd($request->all());
         $user = User::where('slug', $slug)->first();
-        return view('ban-user', ['user' => $user]);
+        return view('users.ban', ['user' => $user]);
     }
 
     // Fungsi Untuk Menghapus Category *Delete
@@ -56,14 +56,14 @@ class UserController extends Controller
     public function banned_users_view()
     {
         $banned_users = User::onlyTrashed()->get();
-        return view('banned-users', ['banned_users' => $banned_users]);
+        return view('users.banned', ['banned_users' => $banned_users]);
     }
 
     public function unban_user_view($slug)
     {
         // dd($user);
         $user = User::withTrashed()->where('slug', $slug)->first();
-        return view('unban-user', ['user' => $user]);
+        return view('users.unban', ['user' => $user]);
     }
 
     // Fungsi Untuk Memulihkan User *Restore
