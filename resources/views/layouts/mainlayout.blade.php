@@ -23,21 +23,20 @@
 
 <body>
     {{-- Navbar utama yang mencakup logo dan tombol menu --}}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
         <div class="container-fluid">
-
             {{-- Menampilkan logo dan offcanvas menu hanya jika pengguna sudah login --}}
             @if (Auth::check())
                 <a class="navbar-brand d-flex align-items-center col-6 col-sm-4 col-md-3 col-lg-2"
                     data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                     <img src="{{ asset('./images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
-                        class="img-fluid">
+                        class="img-fluid" style="max-height: 50px;">
                 </a>
             @else
                 {{-- Jika pengguna belum login, tampilkan logo saja tanpa fitur offcanvas --}}
                 <a class="navbar-brand col-6 col-sm-4 col-md-3 col-lg-2" href="/">
                     <img src="{{ asset('./images/logo.png') }}" alt="SIP Sistem Informasi Perpustakaan"
-                        class="img-fluid">
+                        class="img-fluid" style="max-height: 50px;">
                 </a>
             @endif
 
@@ -50,18 +49,15 @@
             {{-- Menu navigasi collapsible yang berisi dropdown profil --}}
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-
                     {{-- Dropdown untuk ikon profil dan nama pengguna --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-
                             {{-- Menampilkan ikon profil person-fill dari Bootstrap --}}
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-person-fill me-2" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
-
                             {{-- Jika user sudah login, tampilkan nama pengguna --}}
                             @if (Auth::check())
                                 {{ Auth::user()->username }}
@@ -69,7 +65,7 @@
                         </a>
 
                         {{-- Menu dropdown untuk opsi profil dan logout jika sudah login --}}
-                        <ul class="dropdown-menu dropdown-menu-end rounded">
+                        <ul class="dropdown-menu dropdown-menu-end rounded shadow">
                             @if (Auth::check())
                                 <li><a class="dropdown-item" href="/user/profile">Profile</a></li>
                                 <li>
@@ -91,6 +87,7 @@
         </div>
     </nav>
 
+
     {{-- Header yang akan diisi oleh konten halaman yang lain --}}
     <header>
         @yield('header')
@@ -100,11 +97,12 @@
 
         {{-- Sidebar menu offcanvas, hanya terlihat jika pengguna login --}}
         @if (Auth::user())
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">SIP Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
                 </div>
 
                 {{-- Menu navigasi utama dengan daftar group dan collapse --}}
@@ -115,35 +113,32 @@
                         {{-- Menu Dashboard --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/dashboard') ? 'active' : '' }}"
                             href="/user/dashboard">
-                            Dashboard
+                            <i class="bi bi-house-door me-2"></i> Dashboard
                         </a>
 
                         {{-- Menu collapse untuk Books dengan submenu --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3"
                             data-bs-toggle="collapse" href="#collapseBooks" role="button" aria-expanded="false"
                             aria-controls="collapseBooks">
-                            Books
+                            <i class="bi bi-book me-2"></i> Books
                         </a>
                         <div class="collapse {{ request()->is('admin/books', 'admin/books/add', 'admin/books/edit/*', 'admin/books/delete/*', 'admin/books/deleted', 'admin/books/restore/*', 'admin/lend', 'admin/lend/return') ? 'show' : '' }}"
                             id="collapseBooks">
                             <div class="list-group list-group-flush">
-
                                 {{-- Submenu Book List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/books', 'admin/books/add', 'admin/books/edit/*', 'admin/books/delete/*', 'admin/books/deleted', 'admin/books/restore/*') ? 'active' : '' }}"
                                     href="/admin/books">
-                                    Book List
+                                    <i class="bi bi-list me-2"></i> Book List
                                 </a>
-
                                 {{-- Submenu Book Lending --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend') ? 'active' : '' }}"
                                     href="/admin/lend">
-                                    Book Lending
+                                    <i class="bi bi-arrow-right-circle me-2"></i> Book Lending
                                 </a>
-
                                 {{-- Submenu Book Return --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend/return') ? 'active' : '' }}"
                                     href="/admin/lend/return">
-                                    Book Return
+                                    <i class="bi bi-arrow-left-circle me-2"></i> Book Return
                                 </a>
                             </div>
                         </div>
@@ -151,41 +146,38 @@
                         {{-- Menu Categories --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/categories', 'admin/categories/add', 'admin/categories/edit/*', 'admin/categories/delete/*', 'admin/categories/deleted', 'admin/categories/restore/*') ? 'active' : '' }}"
                             href="/admin/categories">
-                            Categories
+                            <i class="bi bi-tags me-2"></i> Categories
                         </a>
 
                         {{-- Menu Loan Records --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/lend/records') ? 'active' : '' }}"
                             href="/admin/lend/records">
-                            Loan Records
+                            <i class="bi bi-file-earmark-text me-2"></i> Loan Records
                         </a>
 
                         {{-- Menu collapse untuk Users dengan submenu --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3"
                             data-bs-toggle="collapse" href="#collapseUsers" role="button" aria-expanded="false"
                             aria-controls="collapseUsers">
-                            Users
+                            <i class="bi bi-person me-2"></i> Users
                         </a>
                         <div class="collapse {{ request()->is('admin/users', 'admin/users/inactive', 'admin/users/banned') ? 'show' : '' }}"
                             id="collapseUsers">
                             <div class="list-group list-group-flush">
-
                                 {{-- Submenu User List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users') ? 'active' : '' }}"
                                     href="/admin/users">
-                                    User List
+                                    <i class="bi bi-person-lines-fill me-2"></i> User List
                                 </a>
-
                                 {{-- Submenu Inactive User List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/inactive') ? 'active' : '' }}"
                                     href="/admin/users/inactive">
-                                    Inactive User List
+                                    <i class="bi bi-person-dash me-2"></i> Inactive User List
                                 </a>
-
                                 {{-- Submenu Banned Users List --}}
                                 <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('admin/users/banned') ? 'active' : '' }}"
                                     href="/admin/users/banned">
-                                    Banned Users List
+                                    <i class="bi bi-person-x-fill me-2"></i> Banned Users List
                                 </a>
                             </div>
                         </div>
@@ -193,32 +185,32 @@
                         {{-- Menu Logout --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/logout') ? 'active' : '' }}"
                             href="/user/logout">
-                            Logout
+                            <i class="bi bi-door-open me-2"></i> Logout
                         </a>
                     @else
                         {{-- Jika bukan admin, tampilkan opsi Book List dan Profile --}}
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('/') ? 'active' : '' }}"
                             href="/">
-                            Book List
+                            <i class="bi bi-book me-2"></i> Book List
                         </a>
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/profile') ? 'active' : '' }}"
                             href="/user/profile">
-                            Profile
+                            <i class="bi bi-person-circle me-2"></i> Profile
                         </a>
                         <a class="list-group-item list-group-item-action list-group-item-light p-3 {{ request()->is('user/logout') ? 'active' : '' }}"
                             href="/user/logout">
-                            Logout
+                            <i class="bi bi-door-open me-2"></i> Logout
                         </a>
                     @endif
-
                 </div>
             </div>
         @endif
 
-        {{-- Konten halaman yang dinamis sesuai dengan halaman yang sedang diakses --}}
-        <div class="p-5 mt-5">
-            @yield('content')
-        </div>
+{{-- Konten halaman yang dinamis sesuai dengan halaman yang sedang diakses --}}
+<div class="p-5 mt-5">
+    @yield('content')
+</div>
+
 
     </main>
 
