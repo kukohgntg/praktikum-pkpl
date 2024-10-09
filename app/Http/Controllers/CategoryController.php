@@ -10,12 +10,12 @@ class CategoryController extends Controller
     public function categories_view()
     {
         $categories = Category::all();
-        return view('categories', ['categories' => $categories]);
+        return view('categories.index', ['categories' => $categories]);
     }
 
     public function add_category_view()
     {
-        return view('add-category');
+        return view('categories.add');
     }
 
     // Fungsi Untuk Menambah Category *Create
@@ -34,7 +34,7 @@ class CategoryController extends Controller
     {
         // dd($request->all());
         $category = Category::where('slug', $slug)->first();
-        return view('edit-category', ['category' => $category]);
+        return view('categories.edit', ['category' => $category]);
     }
 
     // Fungsi Untuk Menganti Nama Category *Update
@@ -56,7 +56,7 @@ class CategoryController extends Controller
     {
         // dd($request->all());
         $category = Category::where('slug', $slug)->first();
-        return view('delete-category', ['category' => $category]);
+        return view('categories.delete', ['category' => $category]);
     }
 
     // Fungsi Untuk Menghapus Category *Delete
@@ -71,14 +71,14 @@ class CategoryController extends Controller
     {
         // dd($deleted_categories);
         $deleted_categories = Category::onlyTrashed()->get();
-        return view('deleted-categories', ['deleted_categories' => $deleted_categories]);
+        return view('categories.deleted', ['deleted_categories' => $deleted_categories]);
     }
 
     public function restore_category_view($slug)
     {
         // dd($category);
         $category = Category::withTrashed()->where('slug', $slug)->first();
-        return view('restore-category', ['category' => $category]);
+        return view('categories.restore', ['category' => $category]);
     }
 
     // Fungsi Untuk Memulihkan Category *Restore
@@ -87,10 +87,5 @@ class CategoryController extends Controller
         $category = Category::withTrashed()->where('slug', $slug)->first();
         $category->restore();
         return redirect('/admin/categories/deleted')->with('status', 'Category Restored Successfully');
-    }
-
-    public function test()
-    {
-        return view('test');
     }
 }
