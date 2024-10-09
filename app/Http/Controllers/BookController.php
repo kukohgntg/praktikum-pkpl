@@ -13,14 +13,14 @@ class BookController extends Controller
     public function books_view()
     {
         $books = Book::all();
-        return view('books', ['books' => $books]);
+        return view('books.index', ['books' => $books]);
     }
 
     // View untuk menambahkan buku
     public function add_book_view()
     {
         $categories = Category::all();
-        return view('add-book', ['categories' => $categories]);
+        return view('books.add', ['categories' => $categories]);
     }
 
     // Fungsi untuk menambahkan buku baru
@@ -64,7 +64,7 @@ class BookController extends Controller
         // dd($request->all());
         $book = Book::where('slug', $slug)->first();
         $categories = Category::all();
-        return view('edit-book', ['book' => $book, 'categories' => $categories]);
+        return view('books.edit', ['book' => $book, 'categories' => $categories]);
     }
 
     // Fungsi untuk mengedit buku *Update
@@ -118,7 +118,7 @@ class BookController extends Controller
     {
         // dd($request->all());
         $book = Book::where('slug', $slug)->first();
-        return view('delete-book', ['book' => $book]);
+        return view('books.delete', ['book' => $book]);
     }
 
     // Fungsi Untuk Menghapus Book *Delete
@@ -133,14 +133,14 @@ class BookController extends Controller
     {
         // dd($deleted_books);
         $deleted_books = Book::onlyTrashed()->get();
-        return view('deleted-books', ['deleted_books' => $deleted_books]);
+        return view('books.deleted', ['deleted_books' => $deleted_books]);
     }
 
     public function restore_book_view($slug)
     {
         // dd($book);
         $book = Book::withTrashed()->where('slug', $slug)->first();
-        return view('restore-book', ['book' => $book]);
+        return view('books.restore', ['book' => $book]);
     }
 
     // Fungsi Untuk Memulihkan Book *Restore
