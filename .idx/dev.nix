@@ -28,7 +28,7 @@
         npm-install = "npm install";
         # Open editors for the following files by default, if they exist:
         # default.openFiles = [ "README.md" "resources/views/welcome.blade.php" ];
-        composer-install = "composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && php artisan db:seed";
+        composer-install = "composer install && cp .env.example .env && php artisan key:generate && php artisan migrate && php artisan db:seed --class=RoleSeeder && php artisan db:seed --class=UserSeeder && php artisan db:seed --class=CategorySeeder";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
