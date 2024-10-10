@@ -1,24 +1,35 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  </a>
+</p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-<a href="https://idx.google.com/import?url=https%3A%2F%2Fgithub.com%2Fkukohgntg%2Fpraktikum-pkpl.git">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://cdn.idx.dev/btn/open_dark_20.svg">
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://cdn.idx.dev/btn/open_light_20.svg">
-    <img
-      height="20"
-      alt="Open in IDX"
-      src="https://cdn.idx.dev/btn/open_purple_20.svg">
-  </picture>
-</a>
+  <a href="https://github.com/laravel/framework/actions">
+    <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version">
+  </a>
+  <a href="https://packagist.org/packages/laravel/framework">
+    <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkukohgntg%2Fpraktikum-pkpl.git">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel"/>
+  </a>
+  <a href="https://idx.google.com/import?url=https%3A%2F%2Fgithub.com%2Fkukohgntg%2Fpraktikum-pkpl.git">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://cdn.idx.dev/btn/open_dark_32.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://cdn.idx.dev/btn/open_light_32.svg">
+      <img height="32" alt="Open in IDX" src="https://cdn.idx.dev/btn/open_purple_32.svg">
+    </picture>
+  </a>
 </p>
 
 ## About Laravel
