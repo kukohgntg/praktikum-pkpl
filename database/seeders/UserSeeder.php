@@ -26,10 +26,10 @@ class UserSeeder extends Seeder
         // Membuat user dengan role_id = 2 (User Biasa)
         User::create([
             'role_id' => 2,
-            'username' => 'kukohgntg',
-            'slug' => 'kukohgntg',
-            'password' => 'kukohgntg', // Laravel akan otomatis melakukan hashing
-            'address' => 'rumah kukoh',
+            'username' => 'test',
+            'slug' => 'test',
+            'password' => 'test', // Laravel akan otomatis melakukan hashing
+            'address' => 'rumah tester',
             'status' => 'active',
         ]);
     }
