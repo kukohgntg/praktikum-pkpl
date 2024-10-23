@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 07 Okt 2024 pada 15.44
+-- Waktu pembuatan: 14 Okt 2024 pada 21.28
 -- Versi server: 8.0.30
 -- Versi PHP: 8.3.11
 
@@ -49,9 +49,12 @@ INSERT INTO `books` (`id`, `book_code`, `title`, `slug`, `cover`, `status`, `cre
 (3, '9786025753251', 'Il Principe (Sang Pangeran)', 'il-principe-sang-pangeran', 'Il Principe (Sang Pangeran)-1727610669.jpg', 'not available', '2024-09-29 04:51:09', '2024-10-01 11:08:01', NULL),
 (4, '9786231648600', 'The Amazing Stories of Quran', 'the-amazing-stories-of-quran', 'The Amazing Stories of Quran-1727738212.jpg', 'not available', '2024-09-30 16:16:52', '2024-10-01 11:07:20', NULL),
 (5, '9786020530772', 'Wangsit (Pawang Soal Sulit) CPNS & PPPK 2024/2025', 'wangsit-pawang-soal-sulit-cpns-pppk-2024-2025', 'Wangsit-Pawang-Soal-Sulit-CPNS-PPPK-2024-2025-1727812445.jpg', 'in stock', '2024-10-01 12:19:12', '2024-10-01 12:54:05', NULL),
-(6, 'p-1', 'prefix', 'prefix', 'prefix-1728308435.png', 'in stock', '2024-10-07 06:40:36', '2024-10-07 07:39:50', NULL),
-(7, 'p-8', 'prefix 8', 'prefix-8', 'prefix-7-1728308974.png', 'in stock', '2024-10-07 06:45:35', '2024-10-07 06:56:26', NULL),
-(8, 'prefix crud', 'prefix crud', 'prefix-crud', '', 'in stock', '2024-10-07 06:57:18', '2024-10-07 06:57:53', NULL);
+(6, 'p-1', 'prefix', 'prefix', 'prefix-1728308435.png', 'in stock', '2024-10-07 06:40:36', '2024-10-08 13:49:47', NULL),
+(7, 'p-8', 'prefix 8', 'prefix-8', 'prefix-7-1728308974.png', 'in stock', '2024-10-07 06:45:35', '2024-10-08 19:02:28', '2024-10-08 19:02:28'),
+(8, 'prefix crud', 'prefix crud up 1', 'prefix-crud-up-1', 'prefix-crud-up-2-1728422741.jpg', 'in stock', '2024-10-07 06:57:18', '2024-10-08 16:13:37', '2024-10-08 16:13:37'),
+(9, 'test', 'test ui', 'test-ui', '', 'in stock', '2024-10-08 18:39:46', '2024-10-08 19:04:03', NULL),
+(10, 'fixing', 'fixing', 'fixing', 'fixing-1728442217.jpg', 'in stock', '2024-10-08 19:49:54', '2024-10-08 19:51:14', NULL),
+(11, 'grouping', 'grouping', 'grouping', 'grouping-1728443842.jpg', 'in stock', '2024-10-08 20:17:01', '2024-10-08 20:17:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,8 +87,9 @@ INSERT INTO `book_category` (`id`, `book_id`, `category_id`, `created_at`, `upda
 (10, 6, 138, NULL, NULL),
 (13, 7, 2, NULL, NULL),
 (14, 7, 3, NULL, NULL),
-(15, 8, 132, NULL, NULL),
-(16, 8, 138, NULL, NULL);
+(18, 8, 2, NULL, NULL),
+(19, 10, 80, NULL, NULL),
+(20, 11, 69, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +409,9 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`, `del
 (273, 'Spiritualisme', 'spiritualisme', '2024-09-28 20:07:45', '2024-10-06 21:49:52', NULL),
 (274, 'prefix edit', 'prefix-edit', '2024-10-07 05:55:14', '2024-10-07 06:16:42', NULL),
 (275, 'prefix test', 'prefix-test', '2024-10-07 06:20:18', '2024-10-07 06:20:18', NULL),
-(276, 'prefix test 3', 'prefix-test-3', '2024-10-07 06:21:14', '2024-10-07 06:22:26', NULL);
+(276, 'prefix test 3', 'prefix-test-3', '2024-10-07 06:21:14', '2024-10-08 22:37:24', '2024-10-08 22:37:24'),
+(277, 'test ui up 2.1', 'test-ui-up-2-1', '2024-10-08 21:50:43', '2024-10-08 22:37:16', '2024-10-08 22:37:16'),
+(278, 'grouping category page', 'grouping-category-page', '2024-10-08 22:59:03', '2024-10-08 22:59:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -696,19 +702,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `book_category`
 --
 ALTER TABLE `book_category`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`

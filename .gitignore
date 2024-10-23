@@ -2,7 +2,7 @@
 /node_modules
 /public/build
 /public/hot
-# /public/storage
+/public/storage
 /storage/*.key
 /vendor
 # .env
@@ -19,6 +19,5 @@ yarn-error.log
 /.idea
 # /.vscode
 /.zed
-/database/migrations/2024_09_28_161450_create_rent_logs_table.php
-/database/migrations/2024_10_01_122828_remove_rent_logs_table.php
 praktikum-pkpl.zip
+/tests-document
